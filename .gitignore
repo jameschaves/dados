@@ -1,0 +1,39 @@
+*/target/**
+*/target/*
+/sta/negocio/target/
+/sta/webservices/target/
+/sta/web/target/
+*.jar
+*.war
+*.ear
+*.class
+
+# netbeans specific
+*/nbactions.xml
+*/nb-configuration.xml
+
+# eclipse specific git ignore
+*.project
+*/.metadata/*
+*/bin/**
+*/tmp/**
+*/tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+*/local.properties
+*.classpath
+/*/.settings/*
+/*/.settings/**
+/sta/web/.settings/*
+/sta/negocio/.settings/*
+/sta/webservices/.settings/*
+*/log/*
+*/log/**
+
+# External tool builders
+*.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch

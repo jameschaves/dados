@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Built-By: filipe.goes
+Build-Jdk: 1.8.0_111
+Class-Path: negocio.jar
