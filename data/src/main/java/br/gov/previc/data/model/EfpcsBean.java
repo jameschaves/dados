@@ -26,19 +26,17 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author james.chaves
- */
 @Entity
-@Table(name = "CADSPC.EFPCS")
+@Table(name = "[CADSPC].EFPCS")
 @XmlRootElement
 @NamedNativeQueries({
-		@NamedNativeQuery(name = "EfpcsBean.Native.findByCnpj", query = "SELECT [NU_MATRICULA_EFPC], [SG_EFPC], [QT_MAX_DIRETORES_EXEC], [QT_MAX_CONSELHEIRO_FISCAL], [QT_MAX_CONSELHEIRO_DELIB], [CS_FUNDAMENTACAO_LEGAL], [CS_TIPO_EFPC], [DT_APROVACAO_EFPC], [DT_INICIO_FUNC], [DT_ENCERRAMENTO_EFPC], [EFPCS].[ID_PJ_SPC], [ID_SIT_EFPC], [CS_PATROCINIO_PREDOMINANTE], [EFPCS].[NU_PROCESSO_EFPC], [TE_EXPEDIENTE_FUNC], [ID_IMG_OUTROS_DOC] "
-				+ "FROM [STA].[STA].[EFPCS] JOIN [STA].[STA].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC WHERE PESSOAS_JURIDICAS_SPC.NU_CNPJ = :nuCnpj", resultClass = EfpcsBean.class),
-		@NamedNativeQuery(name = "EfpcsBean.Native.findByNumatriculaEfpc", query = "SELECT [NU_MATRICULA_EFPC], [SG_EFPC], [QT_MAX_DIRETORES_EXEC], [QT_MAX_CONSELHEIRO_FISCAL], [QT_MAX_CONSELHEIRO_DELIB], [CS_FUNDAMENTACAO_LEGAL], [CS_TIPO_EFPC], [DT_APROVACAO_EFPC], [DT_INICIO_FUNC], [DT_ENCERRAMENTO_EFPC], [EFPCS].[ID_PJ_SPC], [ID_SIT_EFPC], [CS_PATROCINIO_PREDOMINANTE], [EFPCS].[NU_PROCESSO_EFPC], [TE_EXPEDIENTE_FUNC], [ID_IMG_OUTROS_DOC] "
-				+ "FROM [STA].[STA].[EFPCS] JOIN [STA].[STA].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
-				+ "WHERE EFPCS.NU_MATRICULA_EFPC = :nuMatriculaEfpc", resultClass = EfpcsBean.class) })
+		@NamedNativeQuery(name = "EfpcsBean.Native.findByCnpj", query = "SELECT * "
+				+ "FROM [CORP].[CADSPC].[EFPCS] JOIN [CORP].[CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
+				+ "WHERE PESSOAS_JURIDICAS_SPC.NU_CNPJ = :nuCnpj", resultClass = EfpcsBean.class),
+		@NamedNativeQuery(name = "EfpcsBean.Native.findByNumatriculaEfpc", query = "SELECT * "
+				+ "FROM [CORP].[CADSPC].[EFPCS] JOIN [CORP].[CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
+				+ "WHERE EFPCS.NU_MATRICULA_EFPC = :nuMatriculaEfpc", resultClass = EfpcsBean.class) 
+		})
 
 @NamedQueries({ @NamedQuery(name = "EfpcsBean.findAll", query = "SELECT e FROM EfpcsBean e"),
 		@NamedQuery(name = "EfpcsBean.findByNuMatriculaEfpc", query = "SELECT e FROM EfpcsBean e WHERE e.nuMatriculaEfpc = :nuMatriculaEfpc"),
@@ -56,7 +54,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 		@NamedQuery(name = "EfpcsBean.findByCsPatrocinioPredominante", query = "SELECT e FROM EfpcsBean e WHERE e.csPatrocinioPredominante = :csPatrocinioPredominante"),
 		@NamedQuery(name = "EfpcsBean.findByNuProcessoEfpc", query = "SELECT e FROM EfpcsBean e WHERE e.nuProcessoEfpc = :nuProcessoEfpc"),
 		@NamedQuery(name = "EfpcsBean.findByTeExpedienteFunc", query = "SELECT e FROM EfpcsBean e WHERE e.teExpedienteFunc = :teExpedienteFunc"),
-		@NamedQuery(name = "EfpcsBean.findByIdImgOutrosDoc", query = "SELECT e FROM EfpcsBean e WHERE e.idImgOutrosDoc = :idImgOutrosDoc") })
+		@NamedQuery(name = "EfpcsBean.findByIdImgOutrosDoc", query = "SELECT e FROM EfpcsBean e WHERE e.idImgOutrosDoc = :idImgOutrosDoc") 
+		})
 public class EfpcsBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

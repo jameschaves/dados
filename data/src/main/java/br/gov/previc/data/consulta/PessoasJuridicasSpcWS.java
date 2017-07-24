@@ -31,7 +31,8 @@ public class PessoasJuridicasSpcWS {
 		try{
 			Map<String, Object> mapaParametro=new HashMap<String, Object>();
 			mapaParametro.put("nuCnpj", BigDecimal.valueOf(Long.parseLong(cnpj)));
-			List<Object> recuperados = pessoasJuridicasSpcDAO.listByQueryName("PessoasJuridicasSpcBean.findByCnpj",mapaParametro);
+			List<Object> recuperados = pessoasJuridicasSpcDAO.listByQueryName("PessoasJuridicasSpcBean.Native.findByCnpj",mapaParametro);
+			System.out.println("Encontrados " + recuperados.size() +" resultados.");
 			ResultadoConsultaPessoasJuridicasSpc resultadoConsulta = new ResultadoConsultaPessoasJuridicasSpc(recuperados
 	        		.stream()
 	        		.map(p -> new ItemConsultaPessoasJuridicasSpc((PessoasJuridicasSpcBean) p))

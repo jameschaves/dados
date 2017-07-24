@@ -6,21 +6,21 @@ import java.math.BigDecimal;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/**
- * The persistent class for the PESSOAS_JURIDICAS_SPC database table.
- * 
- */
 @Entity
-@Table(name = "CADSPC.PESSOAS_JURIDICAS_SPC")
+@Table(name = "[CADSPC].PESSOAS_JURIDICAS_SPC")
+@NamedNativeQueries({
+	@NamedNativeQuery(name = "PessoasJuridicasSpcBean.Native.findByCnpj", query = "SELECT * "
+			+ "FROM [CORP].[CADSPC].[EFPCS] JOIN [CORP].[CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
+			+ "WHERE PESSOAS_JURIDICAS_SPC.NU_CNPJ = :nuCnpj", resultClass = PessoasJuridicasSpcBean.class)
+	})
 @NamedQueries({
 
 		@NamedQuery(name = "PessoasJuridicasSpcBean.findAll", query = "SELECT p FROM PessoasJuridicasSpcBean p"),

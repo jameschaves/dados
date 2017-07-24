@@ -28,10 +28,12 @@ public class EfpcsWS {
 			Map<String, Object> mapaParametro=new HashMap<String, Object>();
 			mapaParametro.put("nuCnpj", BigDecimal.valueOf(Long.parseLong(cnpj)));
 			List<Object> recuperados = efpcsDAO.listByQueryName("EfpcsBean.Native.findByCnpj",mapaParametro);
+			System.out.println("Encontrados " + recuperados.size() +" resultados.");
 			ResultadoConsultaEfpcs resultadoConsulta = new ResultadoConsultaEfpcs(recuperados
 	        		.stream()
 	        		.map(r -> new ItemConsultaEfpcs((EfpcsBean) r))
 	        		.collect(Collectors.toList()));
+			//System.out.println("Encontrados " + resultadoConsulta.getEfpcs().size() +" resultados.");
 			return Response.ok().entity(resultadoConsulta).build();
 		}
 		catch (Exception e){

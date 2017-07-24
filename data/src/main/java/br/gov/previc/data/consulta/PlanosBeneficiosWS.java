@@ -28,7 +28,7 @@ public class PlanosBeneficiosWS {
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String cnpb) {
 		try{
 			Map<String, Object> mapaParametro=new HashMap<String, Object>();
-			mapaParametro.put("cnpb", BigDecimal.valueOf(Long.parseLong(cnpb)));
+			mapaParametro.put("nuCnpb", Long.parseLong(cnpb));
 			List<Object> recuperados = planosDAO.listByQueryName("PlanosBeneficiosBean.Native.findByCnpb",mapaParametro);
 			ResultadoConsultaPlanosBeneficios resultadoConsulta = new ResultadoConsultaPlanosBeneficios(recuperados
 	        		.stream()

@@ -22,7 +22,7 @@ public class ResultadoConsultaEfpcs {
     public List<ItemConsultaEfpcs> getEfpcs() {
         return efpcs;
     }
-	public void setMetadados(List<ItemConsultaEfpcs> efpcs){
+	public void setEfpcs(List<ItemConsultaEfpcs> efpcs){
 		this.efpcs = efpcs;
 	}
 

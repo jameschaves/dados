@@ -20,7 +20,7 @@ public class DataWebServiceIT {
 	static String host = "localhost";
 	static String port = "8080";
 	static String http = "http://";
-	static String cnpj = "12905021000135";
+	static String cnpj = "74060534000140";
 	static String cnpb = "1904000118";
 	
 	@Test

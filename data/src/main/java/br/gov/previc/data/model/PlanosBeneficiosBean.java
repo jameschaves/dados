@@ -40,7 +40,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 	})
 @NamedQueries({
 	@NamedQuery(name = "PlanosBeneficiosBean.findAll", query = "SELECT p FROM PlanosBeneficiosBean p"),
-	@NamedQuery(name = "PessoasJuridicasSpcBean.findByCnpb", query = "SELECT p FROM PessoasJuridicasSpcBean p WHERE p.nuCnpb = :nuCnpb")
+	@NamedQuery(name = "PlanosBeneficiosBean.findByCnpb", query = "SELECT p FROM PlanosBeneficiosBean p WHERE p.nuCnpb = :nuCnpb")
 	})
 public class PlanosBeneficiosBean implements Serializable {
 

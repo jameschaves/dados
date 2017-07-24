@@ -23,7 +23,7 @@ public class ResultadoConsultaPessoasJuridicasSpc {
     public List<ItemConsultaPessoasJuridicasSpc> getPessoasJuridicasSpc() {
         return pessoasjuridicasspc;
     }
-	public void setMetadados(List<ItemConsultaPessoasJuridicasSpc> pessoasjuridicasspc){
+	public void setPessoasJuridicasSpc(List<ItemConsultaPessoasJuridicasSpc> pessoasjuridicasspc){
 		this.pessoasjuridicasspc = pessoasjuridicasspc;
 	}
 

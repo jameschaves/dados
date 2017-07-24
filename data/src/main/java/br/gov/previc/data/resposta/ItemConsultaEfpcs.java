@@ -14,7 +14,7 @@ public class ItemConsultaEfpcs {
 		super();
 	}
 	public ItemConsultaEfpcs(EfpcsBean r) {
-		this.matricula = r.getNuMatriculaEfpc().toString();
+		this.matricula = String.valueOf(r.getNuMatriculaEfpc());
 		this.sgEfpc=r.getSgEfpc();
 		this.idPjSpc=r.getIdPjSpc().toString();
 	}

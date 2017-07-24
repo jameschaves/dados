@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "Resultado")
-@XmlType(propOrder = {"efpcs"})
+@XmlType(propOrder = {"planosBeneficios"})
 public class ResultadoConsultaPlanosBeneficios {
 
 	private List<ItemConsultaPlanosBeneficios> planosBeneficios;
