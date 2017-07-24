@@ -16,7 +16,7 @@ import br.gov.previc.data.resposta.ResultadoConsultaPlanosBeneficios;
 public class DataWebServiceIT {
 
 	static String login = "data";
-	static String password = "}+d9Wfr[8.}KG=8Y";
+	static String password = "P@$$w0rd";
 	static String host = "localhost";
 	static String port = "8080";
 	static String http = "http://";
@@ -29,6 +29,7 @@ public class DataWebServiceIT {
 		String url = http+host+":"+port+"/data/rest/data/pessoasjuridicasspc"
 				+"?cnpj="
 				+ cnpj;	
+		System.out.println("Url sendo testada: "+url);
 		String encodedHeader = Base64.getEncoder().encodeToString((login+":"+password).getBytes());
 	    Response response = ClientBuilder.newClient().target(url).request().header("Authorization", "Basic "+encodedHeader).get();
 	    System.out.println("Status: "+response.getStatus());
@@ -48,6 +49,7 @@ public class DataWebServiceIT {
 		String url = http+host+":"+port+"/data/rest/data/efpcs"
 				+"?cnpj="
 				+ cnpj;	
+		System.out.println("Url sendo testada: "+url);
 		String encodedHeader = Base64.getEncoder().encodeToString((login+":"+password).getBytes());
 	    Response response = ClientBuilder.newClient().target(url).request().header("Authorization", "Basic "+encodedHeader).get();
 	    System.out.println("Status: "+response.getStatus());
@@ -68,6 +70,7 @@ public class DataWebServiceIT {
 		String url = http+host+":"+port+"/data/rest/data/planosbeneficios"
 				+"?cnpb="
 				+ cnpb;	
+		System.out.println("Url sendo testada: "+url);
 		String encodedHeader = Base64.getEncoder().encodeToString((login+":"+password).getBytes());
 	    Response response = ClientBuilder.newClient().target(url).request().header("Authorization", "Basic "+encodedHeader).get();
 	    System.out.println("Status: "+response.getStatus());

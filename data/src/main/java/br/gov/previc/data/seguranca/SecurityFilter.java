@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.naming.InitialContext;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.login.LoginContext;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.HttpHeaders;
@@ -21,7 +23,7 @@ import org.jboss.resteasy.util.Base64;
 
 @Provider
 public class SecurityFilter implements ContainerRequestFilter {
-	static String password = "}+d9Wfr[8.}KG=8Y";
+	//static String password = "P@$$w0rd";
 	@Override
 	public void filter(ContainerRequestContext requestContext) throws IOException {
 		
@@ -49,11 +51,15 @@ public class SecurityFilter implements ContainerRequestFilter {
         	return;
         }
         try {
+        	CallbackHandler handler = new UserPassHandler(map.get("username"), map.get("password"));
+        	LoginContext lc = new LoginContext("java:/jaas/other", handler);
+        	lc.login();
+        	/*
         	if (!map.get("password").equals(password))
         		requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED)
                         .entity("Não autorizado.")
                         .build());
-        	
+        	*/
         } catch (Exception e) {
         	requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED)
                     .entity(e.getMessage())

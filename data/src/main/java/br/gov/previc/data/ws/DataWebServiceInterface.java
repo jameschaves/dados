@@ -1,5 +1,6 @@
 package br.gov.previc.data.ws;
 
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 
-
+@RolesAllowed("usuario")
 @Path("data")
 public interface DataWebServiceInterface {
 	
