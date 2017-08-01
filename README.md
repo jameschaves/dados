@@ -42,4 +42,6 @@ Instalação do sistema no Wildfly 10:
 		</datasources>
 	</subsystem>
 
-2) Adicionar ao arquivo de configuração do wildfly o arquivo data.credentials.
+2) Adicionar usuários ao wildfly, utilizando o script add-user, da pasta bin, com o papel "usuario".
+
+NOTA: Se quiser rodar os testes de integração (classes com final IT), adicionar o usuário de login "data", senha P@$$w0rd, papel usuario ao wildfly de desenvolvimento. Ou então, editar a classe manualmente.
