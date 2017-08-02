@@ -1,14 +1,20 @@
-﻿
- 
-Superintendência Nacional de Previdência Complementar
+﻿Superintendência Nacional de Previdência Complementar
 Coordenação-Geral de Tecnologia da Informação
 Webservice de consulta a dados corporativos - Corp
 
-Autores: Filipe Paschoal Góes
+Autor(es): Filipe Paschoal Góes
 
-Instalação do sistema no Wildfly 10:
+1. Uso
 
-1) Adicionar as seguintes datasources.
+https://<hostname>:<porta>/corp/rest/corp/efpcs?cnpj=<numero_do_cnpj>
+https://<hostname>:<porta>/corp/rest/corp/pessoasjuridicasspc?cnpj=<numero_do_cnpj>
+https://<hostname>:<porta>/corp/rest/corp/planosbeneficios?cnpb=<numero_do_cnpb>
+
+A autenticação é BASIC, ou seja, deve-se por em cada requisição um header de nome "Authorization", tendo como valor a string <usuario>:<senha> codificada em base64. Tais usuários e senhas devem ser adicionados ao Wildfly spor meio do script $WILDLY_HOME/bin/add-user.sh, com o papel "usuario".
+
+2. Instalação do sistema no Wildfly 10.
+2.1. Adicionar o driver sqljdbc.
+2.2. Adicionar as seguintes datasources, mudando o que for necessário.
 	<subsystem xmlns="urn:jboss:domain:datasources:4.0">
         <datasources>
 			...
@@ -42,6 +48,8 @@ Instalação do sistema no Wildfly 10:
 		</datasources>
 	</subsystem>
 
-2) Adicionar usuários ao wildfly, utilizando o script add-user, da pasta bin, com o papel "usuario".
+2.3. Adicionar usuários ao wildfly, utilizando o script $WILDLY_HOME/bin/add-user.sh, com o papel "usuario".
 
-NOTA: Se quiser rodar os testes de integração (classes com final IT), adicionar o usuário de login "corp", senha P@$$w0rd, papel usuario ao wildfly de desenvolvimento. Ou então, editar a classe manualmente.
+NOTA: Se quiser rodar os testes de integração (classes com final IT), adicionar o usuário de login "corp", senha P@$$w0rd, papel usuario ao wildfly de desenvolvimento. 
+
+2.4. Ativar o https no wildfly. Não utilizar o sistema sem o protocolo https, para não comprometer a segurança.

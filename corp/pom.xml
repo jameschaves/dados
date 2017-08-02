@@ -75,7 +75,7 @@
 	</dependency>
   </dependencies>
   <build>
-		<finalName>data</finalName>
+		<finalName>corp</finalName>
 		<plugins>        
             <plugin>
 			    <groupId>org.apache.maven.plugins</groupId>
@@ -108,7 +108,9 @@
 			<plugin>
                 <groupId>org.wildfly.plugins</groupId>
                 <artifactId>wildfly-maven-plugin</artifactId>
+                <version>1.2.0.Alpha6</version>
                 <executions>
+                	<!-- Ativar para usar o goal wildfly:deploy
                 	<execution>
                     	<id>deploy-driver</id>
                         <phase>package</phase>
@@ -122,6 +124,7 @@
                             <name>sqljdbc4.0-4.jar</name>
                         </configuration>
                     </execution> 
+                    -->
                     <!-- Descomentar as linhas abaixo somente no deploy em um novo Wildfly. -->
                     <!-- OBS: Atentar para o caractere $ na senha. -->
                     <!-- 

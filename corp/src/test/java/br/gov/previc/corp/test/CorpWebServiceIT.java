@@ -26,7 +26,7 @@ public class CorpWebServiceIT {
 	@Test
 	public void testPessoasJuridicasSpc() throws JAXBException {
 		System.out.println("\n\nTestando consulta PessoasJuridicasSpc...");
-		String url = http+host+":"+port+"/data/rest/data/pessoasjuridicasspc"
+		String url = http+host+":"+port+"/corp/rest/corp/pessoasjuridicasspc"
 				+"?cnpj="
 				+ cnpj;	
 		System.out.println("Url sendo testada: "+url);
@@ -46,7 +46,7 @@ public class CorpWebServiceIT {
 	@Test
 	public void testEfpcs() throws JAXBException {
 		System.out.println("\n\nTestando consulta Efpcs...");
-		String url = http+host+":"+port+"/data/rest/data/efpcs"
+		String url = http+host+":"+port+"/corp/rest/corp/efpcs"
 				+"?cnpj="
 				+ cnpj;	
 		System.out.println("Url sendo testada: "+url);
@@ -67,7 +67,7 @@ public class CorpWebServiceIT {
 	@Test
 	public void testPlanosBeneficios() throws JAXBException {
 		System.out.println("\n\nTestando consulta PlanosBeneficios...");
-		String url = http+host+":"+port+"/data/rest/data/planosbeneficios"
+		String url = http+host+":"+port+"/corp/rest/corp/planosbeneficios"
 				+"?cnpb="
 				+ cnpb;	
 		System.out.println("Url sendo testada: "+url);
