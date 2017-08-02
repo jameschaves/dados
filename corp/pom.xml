@@ -4,9 +4,8 @@
   <groupId>br.gov.previc.sta</groupId>
   <artifactId>corp</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>Corp</name>
-  <url>http://maven.apache.org</url>
   <dependencies>
   <dependency>
     		<groupId>org.hibernate</groupId>
