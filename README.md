@@ -1,8 +1,8 @@
-
+﻿
  
 Superintendência Nacional de Previdência Complementar
 Coordenação-Geral de Tecnologia da Informação
-Webservice de consulta a dados - Data
+Webservice de consulta a dados corporativos - Corp
 
 Autores: Filipe Paschoal Góes
 
@@ -44,4 +44,4 @@ Instalação do sistema no Wildfly 10:
 
 2) Adicionar usuários ao wildfly, utilizando o script add-user, da pasta bin, com o papel "usuario".
 
-NOTA: Se quiser rodar os testes de integração (classes com final IT), adicionar o usuário de login "data", senha P@$$w0rd, papel usuario ao wildfly de desenvolvimento. Ou então, editar a classe manualmente.
+NOTA: Se quiser rodar os testes de integração (classes com final IT), adicionar o usuário de login "corp", senha P@$$w0rd, papel usuario ao wildfly de desenvolvimento. Ou então, editar a classe manualmente.
