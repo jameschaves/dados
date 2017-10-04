@@ -1,4 +1,22 @@
-﻿Superintendência Nacional de Previdência Complementar
+﻿                                                                                
+        CCCCCCCCCCCCC     OOOOOOOOO     RRRRRRRRRRRRRRRRR   PPPPPPPPPPPPPPPPP   
+     CCC::::::::::::C   OO:::::::::OO   R::::::::::::::::R  P::::::::::::::::P  
+   CC:::::::::::::::C OO:::::::::::::OO R::::::RRRRRR:::::R P::::::PPPPPP:::::P 
+  C:::::CCCCCCCC::::CO:::::::OOO:::::::ORR:::::R     R:::::RPP:::::P     P:::::P
+ C:::::C       CCCCCCO::::::O   O::::::O  R::::R     R:::::R  P::::P     P:::::P
+C:::::C              O:::::O     O:::::O  R::::R     R:::::R  P::::P     P:::::P
+C:::::C              O:::::O     O:::::O  R::::RRRRRR:::::R   P::::PPPPPP:::::P 
+C:::::C              O:::::O     O:::::O  R:::::::::::::RR    P:::::::::::::PP  
+C:::::C              O:::::O     O:::::O  R::::RRRRRR:::::R   P::::PPPPPPPPP    
+C:::::C              O:::::O     O:::::O  R::::R     R:::::R  P::::P            
+C:::::C              O:::::O     O:::::O  R::::R     R:::::R  P::::P            
+ C:::::C       CCCCCCO::::::O   O::::::O  R::::R     R:::::R  P::::P            
+  C:::::CCCCCCCC::::CO:::::::OOO:::::::ORR:::::R     R:::::RPP::::::PP          
+   CC:::::::::::::::C OO:::::::::::::OO R::::::R     R:::::RP::::::::P          
+     CCC::::::::::::C   OO:::::::::OO   R::::::R     R:::::RP::::::::P          
+        CCCCCCCCCCCCC     OOOOOOOOO     RRRRRRRR     RRRRRRRPPPPPPPPPP  
+
+Superintendência Nacional de Previdência Complementar
 Coordenação-Geral de Tecnologia da Informação
 Webservice de consulta a dados corporativos - Corp
 

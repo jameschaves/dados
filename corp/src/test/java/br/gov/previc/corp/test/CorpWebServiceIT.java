@@ -17,11 +17,11 @@ public class CorpWebServiceIT {
 
 	static String login = "corp";
 	static String password = "P@$$w0rd";
-	static String host = "localhost";
+	static String host = "10.68.14.72";
 	static String port = "8080";
 	static String http = "http://";
-	static String cnpj = "74060534000140";
-	static String cnpb = "1904000118";
+	static String cnpj = "6252746000179";
+	static String cnpb = "1984000438";
 	
 	@Test
 	public void testPessoasJuridicasSpc() throws JAXBException {
