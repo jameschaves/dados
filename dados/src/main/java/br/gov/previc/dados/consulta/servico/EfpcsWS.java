@@ -46,6 +46,11 @@ public class EfpcsWS {
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 	}
+	public Response doConsultaPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+		Map<String, Object> mapaParametro=new HashMap<String, Object>();
+		mapaParametro.put("idPjSpc", id);
+		return 	doConsultaGenerica(uriInfo, request, mapaParametro, "EfpcsModel.findByIdPjSpc");	
+	}
 	
 
 }

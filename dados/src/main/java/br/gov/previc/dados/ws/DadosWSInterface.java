@@ -40,6 +40,14 @@ public interface DadosWSInterface {
 			@PathParam(value = "id") String id);
 	
 	@GET
+    @Path("efpcs/idpjspc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaEfpcsPorIdPjSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
     @Path("planosbeneficios/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaPlanosBeneficios(

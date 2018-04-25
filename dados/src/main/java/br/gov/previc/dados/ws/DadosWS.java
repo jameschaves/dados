@@ -46,5 +46,9 @@ public class DadosWS implements DadosWSInterface{
 		
 		return planosBeneficiosWS.doConsultaPorCnpb(uriInfo, request, cnpb);
 	}
+	@Override
+	public Response consultaEfpcsPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+		return efpcsWS.doConsultaPorIdPjSpc(uriInfo, request, id);
+	}
 	
 }
