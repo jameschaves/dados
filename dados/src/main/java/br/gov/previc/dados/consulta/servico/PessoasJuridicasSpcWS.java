@@ -1,9 +1,9 @@
 package br.gov.previc.dados.consulta.servico;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -15,15 +15,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import br.gov.previc.dados.consulta.resposta.ItemRespostaPessoasJuridicasSpc;
-import br.gov.previc.dados.consulta.resposta.RespostaConsultaPessoasJuridicasSpc;
+import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
 import br.gov.previc.dados.dao.DadosDaoInterface;
 import br.gov.previc.dados.model.PessoasJuridicasSpcModel;
+import br.gov.previc.dados.utils.Utils;
 
 @Stateless
 public class PessoasJuridicasSpcWS {
 	//@EJB(beanName="PessoasJuridicasSpcDao")
 	@EJB
-	DadosDaoInterface pessoasJuridicasSpcDao; 
+	DadosDaoInterface dao; 
 	static final Logger logger = LogManager.getLogger();
 	public PessoasJuridicasSpcWS(){	
 	}
@@ -40,26 +41,14 @@ public class PessoasJuridicasSpcWS {
 	
 	public Response doConsultaGenerica(UriInfo uriInfo, HttpServletRequest request, Map<String, Object> mapaParametro, String query) {
 		try{
-			
-			List<Object> recuperados = pessoasJuridicasSpcDao.listByQueryName(query,mapaParametro);
-			logger.debug("Requisicao: " + request.getRemoteAddr());
-			logger.debug("Encontrados " + recuperados.size() +" resultados.");
-			List<PessoasJuridicasSpcModel> pjs = new LinkedList<PessoasJuridicasSpcModel>();
-			for (Object recuperado : recuperados) {
-				pjs.add((PessoasJuridicasSpcModel) recuperado);
-			}
-			logger.debug("Cast correto.");
-			List<ItemRespostaPessoasJuridicasSpc> items = new LinkedList<ItemRespostaPessoasJuridicasSpc>();;
-			for (PessoasJuridicasSpcModel pj : pjs) {
-				items.add(new ItemRespostaPessoasJuridicasSpc(pj));
-			}
-			logger.debug("Lista de items: " + items.toString());
-			RespostaConsultaPessoasJuridicasSpc resultadoConsulta = new RespostaConsultaPessoasJuridicasSpc(items);
-			logger.debug("Resultados: " + resultadoConsulta);
+			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
+			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
+			RespostaConsulta<ItemRespostaPessoasJuridicasSpc> resultadoConsulta = new RespostaConsulta<ItemRespostaPessoasJuridicasSpc>(recuperados.stream()
+					.map(r -> new ItemRespostaPessoasJuridicasSpc((PessoasJuridicasSpcModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}
 		catch (Exception e){
-			logger.info(e.getMessage());
+			logger.info("Erro na requisicao de origem "+Utils.getClientIp(request) +" com a mensagem "+e.getMessage());
 			return Response.status(403).entity(e.getMessage()).build();
 		}		
 	}

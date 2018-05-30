@@ -12,19 +12,22 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author james.chaves
  */
 @Entity
-@Table(name = "[CORP].[CADSPC].[SITUACOES_PLANO]")
-@XmlRootElement
-
+@Table(name = "CADSPC.SITUACOES_PLANO")
+@NamedQueries({
+	@NamedQuery(name="SituacoesPlanoModel.findAll", query="SELECT s FROM SituacoesPlanoModel s"),
+	@NamedQuery(name="SituacoesPlanoModel.findByIdSitPlano", query="SELECT s FROM SituacoesPlanoModel s WHERE s.idSitPlano = :idSitPlano")
+})
 public class SituacoesPlanoModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;

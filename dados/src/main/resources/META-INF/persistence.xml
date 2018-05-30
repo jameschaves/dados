@@ -9,9 +9,14 @@
 	
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:jboss/datasources/DadosDS</jta-data-source>
+		<class>br.gov.previc.dados.model.GestoesPlanoModel</class>
 		<class>br.gov.previc.dados.model.PlanosBeneficiosModel</class>
+		<class>br.gov.previc.dados.model.CadastrosPessoasFisicasSpcModel</class>
+		<class>br.gov.previc.dados.model.HistoricosCaptacaoModel</class>
 		<class>br.gov.previc.dados.model.EfpcsModel</class>
+		<class>br.gov.previc.dados.model.LancamentosPlanoModel</class>
 		<class>br.gov.previc.dados.model.PessoasJuridicasSpcModel</class>
+		<class>br.gov.previc.dados.model.SituacoesPlanoModel</class>
 		<shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
 
 

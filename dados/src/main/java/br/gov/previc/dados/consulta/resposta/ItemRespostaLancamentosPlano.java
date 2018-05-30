@@ -1,116 +1,93 @@
-package br.gov.previc.dados.model;
+package br.gov.previc.dados.consulta.resposta;
 
-import java.io.Serializable;
-import javax.persistence.*;
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
-/**
- * The persistent class for the LANCAMENTOS_PLANO database table.
- * 
- */
-@Entity
-@Table(name="SPC.LANCAMENTOS_PLANO")
-@NamedQueries({
-	@NamedQuery(name="LancamentosPlanoModel.findAll", query="SELECT l FROM LancamentosPlanoModel l"),
-	@NamedQuery(name="LancamentosPlanoModel.findByIdCaptacao", query="SELECT l FROM LancamentosPlanoModel l WHERE l.idCaptacao = :idCaptacao"),
-	@NamedQuery(name="LancamentosPlanoModel.findByNuPlano", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano"),
-	@NamedQuery(name="LancamentosPlanoModel.findByNuAno", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuAno = :nuAno")
-})
-public class LancamentosPlanoModel implements Serializable {
-	private static final long serialVersionUID = 1L;
+import br.gov.previc.dados.model.LancamentosPlanoModel;
 
-	@Column(name="CS_NATUREZA_LANCAMENTO")
+@XmlType(propOrder = {"csNaturezaLancamento","csNaturezaSaldoFinal","idCaptacao","nuAno","nuPlano","nuMes","nuArvore","nuConta","nuTrimestre","vlCredito","vlDebito","vlSaldoFinal","vlSaldoInicial"})
+public class ItemRespostaLancamentosPlano {
+
 	private String csNaturezaLancamento;
-
-	@Column(name="CS_NATUREZA_SALDO_FINAL")
 	private String csNaturezaSaldoFinal;
-	
-	@Id
-	@Column(name="ID_CAPTACAO")
 	private Long idCaptacao;
-
-	@Column(name="NU_ANO")
 	private Integer nuAno;
-
-	@Column(name="NU_ARVORE")
-	private Integer nuArvore;
-
-	@Column(name="NU_CONTA")
-	private BigDecimal nuConta;
-
-	@Column(name="NU_MES")
-	private Integer nuMes;
-
-	@Column(name="NU_PLANO")
 	private BigDecimal nuPlano;
-
-	@Column(name="NU_TRIMESTRE")
+	private Integer nuMes;
+	private Integer nuArvore;
+	private BigDecimal nuConta;
 	private Integer nuTrimestre;
-
-	@Column(name="VL_CREDITO")
 	private Double vlCredito;
-
-	@Column(name="VL_DEBITO")
 	private Double vlDebito;
-
-	@Column(name="VL_SALDO_FINAL")
 	private Double vlSaldoFinal;
-
-	@Column(name="VL_SALDO_INICIAL")
 	private Double vlSaldoInicial;
 
-	public LancamentosPlanoModel() {
+	public ItemRespostaLancamentosPlano(LancamentosPlanoModel r) {
+		this.csNaturezaLancamento = r.getCsNaturezaLancamento();
+		this.csNaturezaSaldoFinal = r.getCsNaturezaSaldoFinal();
+		this.idCaptacao = r.getIdCaptacao();
+		this.nuAno = r.getNuAno();
+		this.nuPlano = r.getNuPlano();
+		this.nuMes = r.getNuMes();
+		this.nuArvore = r.getNuArvore();
+		this.nuConta = r.getNuConta();
+		this.nuTrimestre = r.getNuTrimestre();
+		this.vlCredito = r.getVlCredito();
+		this.vlDebito = r.getVlDebito();
+		this.vlSaldoFinal = r.getVlSaldoFinal();
+		this.vlSaldoInicial = r.getVlSaldoInicial();
 	}
-
+	@XmlElement(name="CsNaturezaLancamento")
 	public String getCsNaturezaLancamento() {
 		return csNaturezaLancamento;
 	}
-
+	@XmlElement(name="CsNaturezaSaldoFinal")
 	public String getCsNaturezaSaldoFinal() {
 		return csNaturezaSaldoFinal;
 	}
-
+	@XmlElement(name="IdCaptacao")
 	public Long getIdCaptacao() {
 		return idCaptacao;
 	}
-
+	@XmlElement(name="NuAno")
 	public Integer getNuAno() {
 		return nuAno;
 	}
-
-	public Integer getNuArvore() {
-		return nuArvore;
-	}
-
-	public BigDecimal getNuConta() {
-		return nuConta;
-	}
-
-	public Integer getNuMes() {
-		return nuMes;
-	}
-
+	@XmlElement(name="NuPlano")
 	public BigDecimal getNuPlano() {
 		return nuPlano;
 	}
-
+	@XmlElement(name="NuMes")
+	public Integer getNuMes() {
+		return nuMes;
+	}
+	@XmlElement(name="NuArvore")
+	public Integer getNuArvore() {
+		return nuArvore;
+	}
+	@XmlElement(name="NuConta")
+	public BigDecimal getNuConta() {
+		return nuConta;
+	}
+	@XmlElement(name="NuTrimestre")
 	public Integer getNuTrimestre() {
 		return nuTrimestre;
 	}
-
+	@XmlElement(name="VlCredito")
 	public Double getVlCredito() {
 		return vlCredito;
 	}
-
+	@XmlElement(name="VlDebito")
 	public Double getVlDebito() {
 		return vlDebito;
 	}
-
+	@XmlElement(name="VlSaldoFinal")
 	public Double getVlSaldoFinal() {
 		return vlSaldoFinal;
 	}
-
+	@XmlElement(name="VlSaldoInicial")
 	public Double getVlSaldoInicial() {
 		return vlSaldoInicial;
 	}
@@ -131,20 +108,20 @@ public class LancamentosPlanoModel implements Serializable {
 		this.nuAno = nuAno;
 	}
 
-	public void setNuArvore(Integer nuArvore) {
-		this.nuArvore = nuArvore;
-	}
-
-	public void setNuConta(BigDecimal nuConta) {
-		this.nuConta = nuConta;
+	public void setNuPlano(BigDecimal nuPlano) {
+		this.nuPlano = nuPlano;
 	}
 
 	public void setNuMes(Integer nuMes) {
 		this.nuMes = nuMes;
 	}
 
-	public void setNuPlano(BigDecimal nuPlano) {
-		this.nuPlano = nuPlano;
+	public void setNuArvore(Integer nuArvore) {
+		this.nuArvore = nuArvore;
+	}
+
+	public void setNuConta(BigDecimal nuConta) {
+		this.nuConta = nuConta;
 	}
 
 	public void setNuTrimestre(Integer nuTrimestre) {
@@ -167,6 +144,6 @@ public class LancamentosPlanoModel implements Serializable {
 		this.vlSaldoInicial = vlSaldoInicial;
 	}
 
-	
+
 
 }

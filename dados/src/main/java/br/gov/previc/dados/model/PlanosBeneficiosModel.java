@@ -6,7 +6,6 @@
 package br.gov.previc.dados.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -20,10 +19,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -31,15 +27,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author james.chaves
  */
 @Entity
-@Table(name = "[CORP].[CADSPC].[PLANOS_BENEFICIOS]")
+@Table(name = "CADSPC.PLANOS_BENEFICIOS")
 @XmlRootElement
 @NamedNativeQueries({
 	@NamedNativeQuery(name = "PlanosBeneficiosModel.Native.findByCnpb", query = "SELECT * "
 			+ "FROM [CADSPC].[PLANOS_BENEFICIOS] JOIN [CADSPC].[SITUACOES_PLANO] ON PLANOS_BENEFICIOS.ID_SIT_PLANO = SITUACOES_PLANO.ID_SIT_PLANO "
-			+ "WHERE PLANOS_BENEFICIOS.NU_CNPB = :nuCnpb", resultClass = PlanosBeneficiosModel.class),
-	@NamedNativeQuery(name = "PlanosBeneficiosModel.Native.findBy", query = "SELECT * "
-			+ "FROM [CADSPC].[PLANOS_BENEFICIOS] "
-			+ "WHERE :coluna = :valor", resultClass = PlanosBeneficiosModel.class) 
+			+ "WHERE PLANOS_BENEFICIOS.NU_CNPB = :nuCnpb", resultClass = PlanosBeneficiosModel.class)
 	})
 @NamedQueries({
 	@NamedQuery(name = "PlanosBeneficiosModel.findAll", query = "SELECT p FROM PlanosBeneficiosModel p"),
@@ -115,11 +108,5 @@ public class PlanosBeneficiosModel implements Serializable {
 	public void setNuCnpb(Long nuCnpb) {
 		this.nuCnpb = nuCnpb;
 	}
-
 	
-
-	
-
-	
-
 }

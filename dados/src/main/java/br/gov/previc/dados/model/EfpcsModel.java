@@ -27,18 +27,15 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "[CADSPC].EFPCS")
+@Table(name = "CADSPC.EFPCS")
 @XmlRootElement
 @NamedNativeQueries({
 		@NamedNativeQuery(name = "EfpcsModel.Native.findByCnpj", query = "SELECT * "
-				+ "FROM [CORP].[CADSPC].[EFPCS] JOIN [CORP].[CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
+				+ "FROM [CADSPC].[EFPCS] JOIN [CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
 				+ "WHERE PESSOAS_JURIDICAS_SPC.NU_CNPJ = :nuCnpj", resultClass = EfpcsModel.class),
 		@NamedNativeQuery(name = "EfpcsModel.Native.findByNumatriculaEfpc", query = "SELECT * "
-				+ "FROM [CORP].[CADSPC].[EFPCS] JOIN [CORP].[CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
-				+ "WHERE EFPCS.NU_MATRICULA_EFPC = :nuMatriculaEfpc", resultClass = EfpcsModel.class),
-		@NamedNativeQuery(name = "EfpcsModel.Native.findBy", query = "SELECT * "
-				+ "FROM [CORP].[CADSPC].[EFPCS] "
-				+ "WHERE :coluna = :valor", resultClass = EfpcsModel.class) 
+				+ "FROM [CADSPC].[EFPCS] JOIN [CADSPC].PESSOAS_JURIDICAS_SPC ON EFPCS.ID_PJ_SPC = PESSOAS_JURIDICAS_SPC.ID_PJ_SPC "
+				+ "WHERE EFPCS.NU_MATRICULA_EFPC = :nuMatriculaEfpc", resultClass = EfpcsModel.class) 
 		})
 
 @NamedQueries({ @NamedQuery(name = "EfpcsModel.findAll", query = "SELECT e FROM EfpcsModel e"),

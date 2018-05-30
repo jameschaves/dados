@@ -71,7 +71,7 @@ public class SecurityFilter implements ContainerRequestFilter {
     }
 	
 	public static Map<String, String> extraiUsuarioSenha(String authHeader){
-    	//TODO: Terminar metodo.
+    	
     	if(null==authHeader)
     		return null;
     	String usernameAndPassword = null;

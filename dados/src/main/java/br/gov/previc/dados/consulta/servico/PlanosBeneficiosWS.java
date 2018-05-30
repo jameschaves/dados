@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import br.gov.previc.dados.consulta.resposta.ItemRespostaPlanosBeneficios;
-import br.gov.previc.dados.consulta.resposta.RespostaConsultaPlanosBeneficios;
+import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
 import br.gov.previc.dados.dao.DadosDaoInterface;
 import br.gov.previc.dados.model.PlanosBeneficiosModel;
 
@@ -23,7 +23,7 @@ import br.gov.previc.dados.model.PlanosBeneficiosModel;
 public class PlanosBeneficiosWS {
 	//@EJB(beanName="PlanosBeneficiosDao")
 	@EJB
-	DadosDaoInterface planosDAO;
+	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
 	public PlanosBeneficiosWS(){	
 	}
@@ -39,9 +39,9 @@ public class PlanosBeneficiosWS {
 	}
 	public Response doConsultaGenerica(UriInfo uriInfo, HttpServletRequest request, Map<String, Object> mapaParametro, String query) {
 		try{
-			List<Object> recuperados = planosDAO.listByQueryName(query,mapaParametro);
-			RespostaConsultaPlanosBeneficios resultadoConsulta = new RespostaConsultaPlanosBeneficios(recuperados.stream()
-	        		.map(r -> new ItemRespostaPlanosBeneficios((PlanosBeneficiosModel) r)).collect(Collectors.toList()));
+			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
+			RespostaConsulta<ItemRespostaPlanosBeneficios> resultadoConsulta = new RespostaConsulta<ItemRespostaPlanosBeneficios>(recuperados.stream()
+					.map(r -> new ItemRespostaPlanosBeneficios((PlanosBeneficiosModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}
 		catch (Exception e){

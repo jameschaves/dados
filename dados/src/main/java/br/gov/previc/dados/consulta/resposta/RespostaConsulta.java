@@ -9,22 +9,20 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "Resposta")
 @XmlType(propOrder = {"colunas"})
-public class RespostaConsultaPessoasJuridicasSpc {
-	
-	private List<ItemRespostaPessoasJuridicasSpc> colunas;
-	public RespostaConsultaPessoasJuridicasSpc() {
+public class RespostaConsulta<T> {
+	private List<T> colunas;
+	public RespostaConsulta() {
 		super();
 	}
-	public RespostaConsultaPessoasJuridicasSpc(List<ItemRespostaPessoasJuridicasSpc> colunas) {
+	public RespostaConsulta(List<T> colunas) {
 		this.colunas=colunas;
 	}
 	@XmlElementWrapper(name="Colunas")
     @XmlElement(name="Coluna")
-	public List<ItemRespostaPessoasJuridicasSpc> getColunas() {
+	public List<T> getColunas() {
 		return colunas;
 	}
-	public void setColunas(List<ItemRespostaPessoasJuridicasSpc> colunas) {
+	public void setColunas(List<T> colunas) {
 		this.colunas = colunas;
 	}
-    
 }

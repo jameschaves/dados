@@ -62,6 +62,92 @@ public interface DadosWSInterface {
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "cnpb") String cnpb);
+	// ---
+	@GET
+    @Path("situacoesplano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaSituacoesPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
 	
+	@GET
+    @Path("gestoesplano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaGestoesPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("gestoesplano/efpc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaGestoesPlanoPorEfpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("gestoesplano/plano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaGestoesPlanoPorPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("cadastrospessoasfisicasspc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaCadastrosPessoasFisicasSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("cadastrospessoasfisicasspc/cpf/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaCadastrosPessoasFisicasSpcPorCpf(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("lancamentosplano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaLancamentosPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("lancamentosplano/plano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaLancamentosPlanoPorPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	@GET
+    @Path("lancamentosplano/ano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaLancamentosPlanoPorAno(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("historicoscaptacao/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHistoricosCaptacao(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
+	
+	@GET
+    @Path("historicoscaptacao/efpc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHistoricosCaptacaoPorEfpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") String id);
 	
 }

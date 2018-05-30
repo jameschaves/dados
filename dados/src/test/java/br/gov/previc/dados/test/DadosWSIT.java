@@ -10,7 +10,8 @@ import javax.xml.bind.JAXBException;
 
 import org.junit.Test;
 
-import br.gov.previc.dados.consulta.resposta.RespostaConsultaPessoasJuridicasSpc;
+import br.gov.previc.dados.consulta.resposta.ItemRespostaPessoasJuridicasSpc;
+import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
 
 public class DadosWSIT {
 
@@ -22,7 +23,7 @@ public class DadosWSIT {
 	static String cnpb = "1984000438";
 	
 	@Test
-	public void testPessoasJuridicasSpc() throws JAXBException {
+	public void testPessoasJuridicasSpcPorId() throws JAXBException {
 		System.out.println("\n\nTestando consulta PessoasJuridicasSpc...");
 		String idDeTeste="4";
 		String url = "https://"+host+":"+port+"/dados/rest/dados/pessoasjuridicasspc/"+idDeTeste;	
@@ -33,8 +34,8 @@ public class DadosWSIT {
 	    System.out.println("Status: "+response.getStatus());
 	    System.out.println("Status Info: "+response.getStatusInfo().toString());
 	    if(response.getStatus()==200){
-	    	RespostaConsultaPessoasJuridicasSpc resultado = response.readEntity(RespostaConsultaPessoasJuridicasSpc.class);
-	    	JAXBContext.newInstance(RespostaConsultaPessoasJuridicasSpc.class).createMarshaller().marshal(resultado, System.out);
+	    	RespostaConsulta<ItemRespostaPessoasJuridicasSpc> resultado = response.readEntity(RespostaConsulta.class);
+	    	JAXBContext.newInstance(RespostaConsulta.class).createMarshaller().marshal(resultado, System.out);
 	    }else{
 	    	System.out.println("Resultado: "+response.readEntity(String.class));
 	    }
