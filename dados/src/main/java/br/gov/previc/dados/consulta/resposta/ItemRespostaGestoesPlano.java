@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.GestoesPlanoModel;
 
 @XmlType(propOrder = {"dtFimTransfGestao","dtIniGestao","idGestaoPlano","idPlano","nuMatriculaEfpc"})
-public class ItemRespostaGestoesPlano {
+public class ItemRespostaGestoesPlano extends ItemResposta{
 
 	private Date dtFimTransfGestao;
 	private Date dtIniGestao;
@@ -23,6 +23,9 @@ public class ItemRespostaGestoesPlano {
 		this.idPlano = r.getIdPlano();
 		this.nuMatriculaEfpc = r.getNuMatriculaEfpc();
 		
+	}
+	public ItemRespostaGestoesPlano() {
+		super();
 	}
 	@XmlElement(name="DtFimTransfGestao")
 	public Date getDtFimTransfGestao() {

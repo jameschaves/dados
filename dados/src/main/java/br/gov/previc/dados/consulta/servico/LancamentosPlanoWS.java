@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -19,6 +20,7 @@ import br.gov.previc.dados.dao.DadosDaoInterface;
 import br.gov.previc.dados.model.LancamentosPlanoModel;
 import br.gov.previc.dados.utils.Utils;
 
+@Stateless
 public class LancamentosPlanoWS {
 	@EJB
 	DadosDaoInterface dao;
@@ -44,7 +46,7 @@ public class LancamentosPlanoWS {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
-			RespostaConsulta<ItemRespostaLancamentosPlano> resultadoConsulta = new RespostaConsulta<ItemRespostaLancamentosPlano>(recuperados.stream()
+			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
 					.map(r -> new ItemRespostaLancamentosPlano((LancamentosPlanoModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}

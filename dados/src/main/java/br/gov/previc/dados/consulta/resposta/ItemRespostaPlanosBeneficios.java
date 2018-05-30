@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.PlanosBeneficiosModel;
 
 @XmlType(propOrder = {"idPlano","nuCnpb","idSitPlano","nmPlano"})
-public class ItemRespostaPlanosBeneficios {
+public class ItemRespostaPlanosBeneficios extends ItemResposta{
 	
 	private Integer idPlano;
 	private Long nuCnpb;

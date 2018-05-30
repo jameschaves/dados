@@ -9,7 +9,7 @@ import br.gov.previc.dados.model.EfpcsModel;
 
 
 @XmlType(propOrder = {"sgEfpc","idPjSpc","nuMatriculaEfpc","csFundamentacaoLegal","csPatrocinioPredominante","dtAprovacaoEfpc","csTipoEfpc","dtInicioFunc","idSitEfpc","nuProcessoEfpc"})
-public class ItemRespostaEfpcs {
+public class ItemRespostaEfpcs extends ItemResposta{
 	
 	private String sgEfpc;
 	private Integer idPjSpc;

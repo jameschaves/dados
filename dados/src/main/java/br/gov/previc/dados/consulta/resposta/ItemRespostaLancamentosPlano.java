@@ -8,12 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.LancamentosPlanoModel;
 
 @XmlType(propOrder = {"csNaturezaLancamento","csNaturezaSaldoFinal","idCaptacao","nuAno","nuPlano","nuMes","nuArvore","nuConta","nuTrimestre","vlCredito","vlDebito","vlSaldoFinal","vlSaldoInicial"})
-public class ItemRespostaLancamentosPlano {
+public class ItemRespostaLancamentosPlano extends ItemResposta{
 
 	private String csNaturezaLancamento;
 	private String csNaturezaSaldoFinal;
 	private Long idCaptacao;
 	private Integer nuAno;
+	public ItemRespostaLancamentosPlano() {
+		super();
+	}
+
 	private BigDecimal nuPlano;
 	private Integer nuMes;
 	private Integer nuArvore;

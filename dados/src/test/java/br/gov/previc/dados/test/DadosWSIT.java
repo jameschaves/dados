@@ -5,13 +5,10 @@ import java.util.Base64;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
+import org.junit.Assert;
 import org.junit.Test;
-
-import br.gov.previc.dados.consulta.resposta.ItemRespostaPessoasJuridicasSpc;
-import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
 
 public class DadosWSIT {
 
@@ -34,11 +31,11 @@ public class DadosWSIT {
 	    System.out.println("Status: "+response.getStatus());
 	    System.out.println("Status Info: "+response.getStatusInfo().toString());
 	    if(response.getStatus()==200){
-	    	RespostaConsulta<ItemRespostaPessoasJuridicasSpc> resultado = response.readEntity(RespostaConsulta.class);
-	    	JAXBContext.newInstance(RespostaConsulta.class).createMarshaller().marshal(resultado, System.out);
+	    	String resposta = response.readEntity(String.class);
+	    	System.out.println(resposta);
 	    }else{
 	    	System.out.println("Resultado: "+response.readEntity(String.class));
 	    }
-	    //Assert.assertEquals(200, response.getStatus());
+	    Assert.assertEquals(200, response.getStatus());
 	}	
 }

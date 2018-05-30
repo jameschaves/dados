@@ -43,7 +43,7 @@ public class EfpcsWS {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
-			RespostaConsulta<ItemRespostaEfpcs> resultadoConsulta = new RespostaConsulta<ItemRespostaEfpcs>(recuperados.stream()
+			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
 					.map(r -> new ItemRespostaEfpcs((EfpcsModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -19,6 +20,7 @@ import br.gov.previc.dados.dao.DadosDaoInterface;
 import br.gov.previc.dados.model.HistoricosCaptacaoModel;
 import br.gov.previc.dados.utils.Utils;
 
+@Stateless
 public class HistoricosCaptacaoWS {
 	@EJB
 	DadosDaoInterface dao;
@@ -38,7 +40,7 @@ public class HistoricosCaptacaoWS {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
-			RespostaConsulta<ItemRespostaHistoricosCaptacao> resultadoConsulta = new RespostaConsulta<ItemRespostaHistoricosCaptacao>(recuperados.stream()
+			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
 					.map(r -> new ItemRespostaHistoricosCaptacao((HistoricosCaptacaoModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}

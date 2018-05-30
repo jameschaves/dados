@@ -40,7 +40,7 @@ public class PlanosBeneficiosWS {
 	public Response doConsultaGenerica(UriInfo uriInfo, HttpServletRequest request, Map<String, Object> mapaParametro, String query) {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
-			RespostaConsulta<ItemRespostaPlanosBeneficios> resultadoConsulta = new RespostaConsulta<ItemRespostaPlanosBeneficios>(recuperados.stream()
+			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
 					.map(r -> new ItemRespostaPlanosBeneficios((PlanosBeneficiosModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}

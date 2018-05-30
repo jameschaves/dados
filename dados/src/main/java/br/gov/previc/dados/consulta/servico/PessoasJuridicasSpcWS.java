@@ -43,7 +43,7 @@ public class PessoasJuridicasSpcWS {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
-			RespostaConsulta<ItemRespostaPessoasJuridicasSpc> resultadoConsulta = new RespostaConsulta<ItemRespostaPessoasJuridicasSpc>(recuperados.stream()
+			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
 					.map(r -> new ItemRespostaPessoasJuridicasSpc((PessoasJuridicasSpcModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}

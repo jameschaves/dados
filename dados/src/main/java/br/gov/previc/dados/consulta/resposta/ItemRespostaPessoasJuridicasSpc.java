@@ -3,13 +3,15 @@ package br.gov.previc.dados.consulta.resposta;
 import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 import br.gov.previc.dados.model.PessoasJuridicasSpcModel;
 
 @XmlType(propOrder = {"idPjSpc","nmRazaoSocial","nuCnpj","csNaturezaJuridicaSpc","dtAtualizacaoPj","dtCadastroPj",
 		"idEmpresa","inExcluido","inValidadoCnis","inPjNacional","nmBairro","nmFantasia","nuProcessoEfpc","teEmail"})
-public class ItemRespostaPessoasJuridicasSpc{
+@XmlSeeAlso({RespostaConsulta.class})
+public class ItemRespostaPessoasJuridicasSpc extends ItemResposta{
 	private Integer idPjSpc;
 	private String nmRazaoSocial;
 	private BigDecimal nuCnpj;
@@ -25,7 +27,6 @@ public class ItemRespostaPessoasJuridicasSpc{
 	private BigDecimal nuProcessoEfpc;
 	private String teEmail;
 	public ItemRespostaPessoasJuridicasSpc() {
-		super();
 	}
 	public ItemRespostaPessoasJuridicasSpc(PessoasJuridicasSpcModel p) {
 		this.idPjSpc=p.getIdPjSpc();

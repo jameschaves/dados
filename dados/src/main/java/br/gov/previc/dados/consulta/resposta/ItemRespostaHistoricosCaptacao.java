@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.HistoricosCaptacaoModel;
 
 @XmlType(propOrder = {"csStatus","dtCaptacao","dtEnvio","idArquivoDaiea","idCaptacao","teObs","nuMatriculaEfpc"})
-public class ItemRespostaHistoricosCaptacao {
+public class ItemRespostaHistoricosCaptacao extends ItemResposta{
 
 	private String csStatus;
 	private Date dtCaptacao;
@@ -18,6 +18,9 @@ public class ItemRespostaHistoricosCaptacao {
 	private String teObs;
 	private Integer nuMatriculaEfpc;
 
+	public ItemRespostaHistoricosCaptacao() {
+		super();
+	}
 	public ItemRespostaHistoricosCaptacao(HistoricosCaptacaoModel r) {
 		this.csStatus = r.getCsStatus();
 		this.dtCaptacao = r.getDtCaptacao();

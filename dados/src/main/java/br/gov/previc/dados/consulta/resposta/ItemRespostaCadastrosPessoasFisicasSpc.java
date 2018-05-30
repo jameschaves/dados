@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.CadastrosPessoasFisicasSpcModel;
 
 @XmlType(propOrder = {"csSexo","dtExpedicaoPassaporte","dtNascimento","idCadastroSpc","idPessoaFisica","nmMae","nmPessoaFisicaSpc","nuCpf","teEmail"})
-public class ItemRespostaCadastrosPessoasFisicasSpc {
+public class ItemRespostaCadastrosPessoasFisicasSpc extends ItemResposta{
 
 	private Integer csSexo;
 	private Date dtExpedicaoPassaporte;
@@ -19,6 +19,10 @@ public class ItemRespostaCadastrosPessoasFisicasSpc {
 	private String nmMae;
 	private String nmPessoaFisicaSpc;
 	private BigDecimal nuCpf;
+	public ItemRespostaCadastrosPessoasFisicasSpc() {
+		super();
+	}
+
 	private String teEmail;
 
 	public ItemRespostaCadastrosPessoasFisicasSpc(CadastrosPessoasFisicasSpcModel r) {

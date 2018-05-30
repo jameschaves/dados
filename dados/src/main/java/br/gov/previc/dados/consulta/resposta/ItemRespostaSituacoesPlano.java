@@ -6,12 +6,15 @@ import javax.xml.bind.annotation.XmlType;
 import br.gov.previc.dados.model.SituacoesPlanoModel;
 
 @XmlType(propOrder = {"idSitPlano","nmSitPrincipal","nmSitSecundaria"})
-public class ItemRespostaSituacoesPlano {
+public class ItemRespostaSituacoesPlano extends ItemResposta{
 
 	private Integer idSitPlano;
 	private String nmSitPrincipal;
 	private String nmSitSecundaria;
 
+	public ItemRespostaSituacoesPlano() {
+		super();
+	}
 	public ItemRespostaSituacoesPlano(SituacoesPlanoModel r) {
 		this.idSitPlano = r.getIdSitPlano();
 		this.nmSitPrincipal = r.getNmSitPrincipal();
