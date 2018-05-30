@@ -1,5 +1,7 @@
 package br.gov.previc.dados.ws;
 
+import java.math.BigDecimal;
+
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
@@ -29,7 +31,7 @@ public interface DadosWSInterface {
 	public Response consultaPessoasJuridicasSpcPorCnpj(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "cnpj") String cnpj);
+			@PathParam(value = "cnpj") BigDecimal cnpj);
 	
 	@GET
     @Path("efpcs/{id}")
@@ -37,7 +39,7 @@ public interface DadosWSInterface {
 	public Response consultaEfpcs(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("efpcs/idpjspc/{id}")
@@ -45,7 +47,7 @@ public interface DadosWSInterface {
 	public Response consultaEfpcsPorIdPjSpc(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("planosbeneficios/{id}")
@@ -53,7 +55,7 @@ public interface DadosWSInterface {
 	public Response consultaPlanosBeneficios(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("planosbeneficios/cnpb/{cnpb}")
@@ -61,7 +63,7 @@ public interface DadosWSInterface {
 	public Response consultaPlanosBeneficiosPorCnpb(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "cnpb") String cnpb);
+			@PathParam(value = "cnpb") Long cnpb);
 	// ---
 	@GET
     @Path("situacoesplano/{id}")
@@ -69,7 +71,7 @@ public interface DadosWSInterface {
 	public Response consultaSituacoesPlano(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("gestoesplano/{id}")
@@ -77,7 +79,7 @@ public interface DadosWSInterface {
 	public Response consultaGestoesPlano(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("gestoesplano/efpc/{id}")
@@ -85,7 +87,7 @@ public interface DadosWSInterface {
 	public Response consultaGestoesPlanoPorEfpc(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("gestoesplano/plano/{id}")
@@ -93,7 +95,7 @@ public interface DadosWSInterface {
 	public Response consultaGestoesPlanoPorPlano(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("cadastrospessoasfisicasspc/{id}")
@@ -101,7 +103,7 @@ public interface DadosWSInterface {
 	public Response consultaCadastrosPessoasFisicasSpc(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("cadastrospessoasfisicasspc/cpf/{id}")
@@ -109,7 +111,7 @@ public interface DadosWSInterface {
 	public Response consultaCadastrosPessoasFisicasSpcPorCpf(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") BigDecimal id);
 	
 	@GET
     @Path("lancamentosplano/{id}")
@@ -117,22 +119,18 @@ public interface DadosWSInterface {
 	public Response consultaLancamentosPlano(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Long id);
 	
 	@GET
-    @Path("lancamentosplano/plano/{id}")
+    @Path("lancamentosplano/cnpb/{id}/ano/{ano}/mes/{mes}/trimestre/{trimestre}")
     @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaLancamentosPlanoPorPlano(
+	public Response consultaLancamentosPlanoPorCnpbPorTempo(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
-	@GET
-    @Path("lancamentosplano/ano/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaLancamentosPlanoPorAno(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") BigDecimal id, 
+			@PathParam(value = "ano") Integer ano, 
+			@PathParam(value = "mes") Integer mes, 
+			@PathParam(value = "trimestre") Integer trimestre);
 	
 	@GET
     @Path("historicoscaptacao/{id}")
@@ -140,7 +138,7 @@ public interface DadosWSInterface {
 	public Response consultaHistoricosCaptacao(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 	@GET
     @Path("historicoscaptacao/efpc/{id}")
@@ -148,6 +146,6 @@ public interface DadosWSInterface {
 	public Response consultaHistoricosCaptacaoPorEfpc(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
-			@PathParam(value = "id") String id);
+			@PathParam(value = "id") Integer id);
 	
 }

@@ -15,7 +15,11 @@ import java.math.BigDecimal;
 	@NamedQuery(name="LancamentosPlanoModel.findAll", query="SELECT l FROM LancamentosPlanoModel l"),
 	@NamedQuery(name="LancamentosPlanoModel.findByIdCaptacao", query="SELECT l FROM LancamentosPlanoModel l WHERE l.idCaptacao = :idCaptacao"),
 	@NamedQuery(name="LancamentosPlanoModel.findByNuPlano", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano"),
-	@NamedQuery(name="LancamentosPlanoModel.findByNuAno", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuAno = :nuAno")
+	@NamedQuery(name="LancamentosPlanoModel.findByNuAno", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuAno = :nuAno"),
+	@NamedQuery(name="LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesAndNuTrimestre", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano AND l.nuAno = :nuAno AND l.nuMes = :nuMes AND l.nuTrimestre = :nuTrimestre"),
+	@NamedQuery(name="LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesIsNullAndNuTrimestre", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano AND l.nuAno = :nuAno AND l.nuMes is null AND l.nuTrimestre = :nuTrimestre"),
+	@NamedQuery(name="LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesAndNuTrimestreIsNull", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano AND l.nuAno = :nuAno AND l.nuMes = :nuMes AND l.nuTrimestre is null"),
+	@NamedQuery(name="LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesIsNullAndNuTrimestreIsNull", query="SELECT l FROM LancamentosPlanoModel l WHERE l.nuPlano = :nuPlano AND l.nuAno = :nuAno AND l.nuMes is null AND l.nuTrimestre is null")
 })
 public class LancamentosPlanoModel implements Serializable {
 	private static final long serialVersionUID = 1L;

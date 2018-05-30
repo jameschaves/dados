@@ -1,5 +1,6 @@
 package br.gov.previc.dados.consulta.servico;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,7 +23,6 @@ import br.gov.previc.dados.utils.Utils;
 
 @Stateless
 public class PessoasJuridicasSpcWS {
-	//@EJB(beanName="PessoasJuridicasSpcDao")
 	@EJB
 	DadosDaoInterface dao; 
 	static final Logger logger = LogManager.getLogger();
@@ -31,12 +31,12 @@ public class PessoasJuridicasSpcWS {
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idPjSpc", id);
-		return 	doConsultaGenerica(uriInfo, request, mapaParametro, "PessoasJuridicasSpcModel.Native.findByIdPjSpc");	
+		return 	doConsultaGenerica(uriInfo, request, mapaParametro, "PessoasJuridicasSpcModel.findByIdPjSpc");	
 	}
-	public Response doConsultaPorCnpj(UriInfo uriInfo, HttpServletRequest request, String cnpj) {
+	public Response doConsultaPorCnpj(UriInfo uriInfo, HttpServletRequest request, BigDecimal cnpj) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("nuCnpj", cnpj);
-		return 	doConsultaGenerica(uriInfo, request,  mapaParametro, "PessoasJuridicasSpcModel.Native.findByCnpj");	
+		return 	doConsultaGenerica(uriInfo, request,  mapaParametro, "PessoasJuridicasSpcModel.findByNuCnpj");	
 	}
 	
 	public Response doConsultaGenerica(UriInfo uriInfo, HttpServletRequest request, Map<String, Object> mapaParametro, String query) {

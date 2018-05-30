@@ -1,5 +1,6 @@
 package br.gov.previc.dados.consulta.servico;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,13 +26,13 @@ public class CadastrosPessoasFisicasSpcWS {
 	@EJB
 	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idPessoaFisica", id);
 		return 	doConsultaGenerica(request, mapaParametro, "CadastrosPessoasFisicasSpcModel.findByIdPessoaFisica");	
 	}
 
-	public Response doConsultaPorCpf(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsultaPorCpf(UriInfo uriInfo, HttpServletRequest request, BigDecimal id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("nuCpf", id);
 		return 	doConsultaGenerica(request, mapaParametro, "CadastrosPessoasFisicasSpcModel.findByNuCpf");	

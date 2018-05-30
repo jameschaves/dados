@@ -25,13 +25,13 @@ public class HistoricosCaptacaoWS {
 	@EJB
 	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idCaptacao", id);
 		return 	doConsultaGenerica(request, mapaParametro, "HistoricosCaptacaoModel.findByIdCaptacao");
 	}
 
-	public Response doConsultaPorEfpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsultaPorEfpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("nuMatriculaEfpc", id);
 		return 	doConsultaGenerica(request, mapaParametro, "HistoricosCaptacaoModel.findByNuMatriculaEfpc");

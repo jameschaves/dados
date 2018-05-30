@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
 	@NamedQuery(name = "PlanosBeneficiosModel.findAll", query = "SELECT p FROM PlanosBeneficiosModel p"),
 	@NamedQuery(name = "PlanosBeneficiosModel.findByIdPlano", query = "SELECT p FROM PlanosBeneficiosModel p WHERE p.idPlano = :idPlano"),
-	@NamedQuery(name = "PlanosBeneficiosModel.findByCnpb", query = "SELECT p FROM PlanosBeneficiosModel p WHERE p.nuCnpb = :nuCnpb")
+	@NamedQuery(name = "PlanosBeneficiosModel.findByNuCnpb", query = "SELECT p FROM PlanosBeneficiosModel p WHERE p.nuCnpb = :nuCnpb")
 	})
 public class PlanosBeneficiosModel implements Serializable {
 

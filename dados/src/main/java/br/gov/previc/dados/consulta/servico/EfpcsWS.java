@@ -27,13 +27,13 @@ public class EfpcsWS {
 	static final Logger logger = LogManager.getLogger();
 	public EfpcsWS(){	
 	}
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("nuMatriculaEfpc", id);
 		return 	doConsultaGenerica(request, mapaParametro, "EfpcsModel.findByNuMatriculaEfpc");	
 	}
 	
-	public Response doConsultaPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsultaPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idPjSpc", id);
 		return 	doConsultaGenerica(request, mapaParametro, "EfpcsModel.findByIdPjSpc");	

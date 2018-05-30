@@ -25,7 +25,7 @@ public class SituacoesPlanoWS {
 	@EJB
 	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idSitPlano", id);
 		return 	doConsultaGenerica(request, mapaParametro, "SituacoesPlanoModel.findByIdSitPlano");

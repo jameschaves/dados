@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -21,6 +23,10 @@ import javax.persistence.Table;
 		@NamedNativeQuery(name = "PessoasJuridicasSpcModel.Native.findByCnpj", query = "SELECT * FROM [CADSPC].[PESSOAS_JURIDICAS_SPC] AS P WHERE P.NU_CNPJ = :nuCnpj", resultClass = PessoasJuridicasSpcModel.class)
 
 })
+@NamedQueries({ @NamedQuery(name = "PessoasJuridicasSpcModel.findAll", query = "SELECT p FROM PessoasJuridicasSpcModel p"),
+	@NamedQuery(name = "PessoasJuridicasSpcModel.findByIdPjSpc", query = "SELECT p FROM PessoasJuridicasSpcModel p WHERE p.idPjSpc = :idPjSpc"),
+	@NamedQuery(name = "PessoasJuridicasSpcModel.findByNuCnpj", query = "SELECT p FROM PessoasJuridicasSpcModel p WHERE p.nuCnpj = :nuCnpj")
+	})
 public class PessoasJuridicasSpcModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 

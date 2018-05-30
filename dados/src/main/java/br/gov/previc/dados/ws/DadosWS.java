@@ -1,5 +1,7 @@
 package br.gov.previc.dados.ws;
 
+import java.math.BigDecimal;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
@@ -42,70 +44,66 @@ public class DadosWS implements DadosWSInterface{
 		return pessoasJuridicasSpcWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaPessoasJuridicasSpcPorCnpj(UriInfo uriInfo, HttpServletRequest request, String cnpj) {
+	public Response consultaPessoasJuridicasSpcPorCnpj(UriInfo uriInfo, HttpServletRequest request, BigDecimal cnpj) {
 		
 		return pessoasJuridicasSpcWS.doConsultaPorCnpj(uriInfo, request, cnpj);
 	}
 	@Override
-	public Response consultaEfpcs(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaEfpcs(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return efpcsWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaPlanosBeneficios(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaPlanosBeneficios(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		
 		return planosBeneficiosWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaPlanosBeneficiosPorCnpb(UriInfo uriInfo, HttpServletRequest request, String cnpb) {
+	public Response consultaPlanosBeneficiosPorCnpb(UriInfo uriInfo, HttpServletRequest request, Long cnpb) {
 		
 		return planosBeneficiosWS.doConsultaPorCnpb(uriInfo, request, cnpb);
 	}
 	@Override
-	public Response consultaEfpcsPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaEfpcsPorIdPjSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return efpcsWS.doConsultaPorIdPjSpc(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaSituacoesPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaSituacoesPlano(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return situacoesPlanoWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaGestoesPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaGestoesPlano(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return gestoesPlanoWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaGestoesPlanoPorEfpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaGestoesPlanoPorEfpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return gestoesPlanoWS.doConsultaPorEfpc(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaGestoesPlanoPorPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaGestoesPlanoPorPlano(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return gestoesPlanoWS.doConsultaPorPlano(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaCadastrosPessoasFisicasSpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaCadastrosPessoasFisicasSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return cadastrosPessoasFisicasSpcWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaCadastrosPessoasFisicasSpcPorCpf(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaCadastrosPessoasFisicasSpcPorCpf(UriInfo uriInfo, HttpServletRequest request, BigDecimal id) {
 		return cadastrosPessoasFisicasSpcWS.doConsultaPorCpf(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaLancamentosPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaLancamentosPlano(UriInfo uriInfo, HttpServletRequest request, Long id) {
 		return lancamentosPlanoWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaLancamentosPlanoPorPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
-		return lancamentosPlanoWS.doConsultaPorPlano(uriInfo, request, id);
+	public Response consultaLancamentosPlanoPorCnpbPorTempo(UriInfo uriInfo, HttpServletRequest request, BigDecimal	 id, Integer ano, Integer mes, Integer trimestre) {
+		return lancamentosPlanoWS.doConsultaPorCnpbPorTempo(uriInfo, request, id, ano, mes, trimestre);
 	}
 	@Override
-	public Response consultaLancamentosPlanoPorAno(UriInfo uriInfo, HttpServletRequest request, String id) {
-		return lancamentosPlanoWS.doConsultaPorAno(uriInfo, request, id);
-	}
-	@Override
-	public Response consultaHistoricosCaptacao(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaHistoricosCaptacao(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return historicosCaptacaoWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaHistoricosCaptacaoPorEfpc(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response consultaHistoricosCaptacaoPorEfpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return historicosCaptacaoWS.doConsultaPorEfpc(uriInfo, request, id);
 	}
 	

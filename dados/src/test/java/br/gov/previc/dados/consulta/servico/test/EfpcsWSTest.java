@@ -52,7 +52,7 @@ public class EfpcsWSTest {
 		        .thenReturn(this.getClass().getName());
 		UriInfo  mockedUriInfo = Mockito.mock(UriInfo.class);
 		
-		Response response = efpcsWS.doConsulta(mockedUriInfo, mockedRequest, "1");
+		Response response = efpcsWS.doConsulta(mockedUriInfo, mockedRequest, 1);
 	    Assert.assertEquals(response.getStatus(),200);
 	}
 	@Test
@@ -87,7 +87,7 @@ public class EfpcsWSTest {
 		        .thenReturn(this.getClass().getName());
 		UriInfo  mockedUriInfo = Mockito.mock(UriInfo.class);
 		
-		Response response = efpcsWS.doConsultaPorIdPjSpc(mockedUriInfo, mockedRequest, "1");
+		Response response = efpcsWS.doConsultaPorIdPjSpc(mockedUriInfo, mockedRequest, 1);
 	    Assert.assertEquals(response.getStatus(),200);
 	}
 }

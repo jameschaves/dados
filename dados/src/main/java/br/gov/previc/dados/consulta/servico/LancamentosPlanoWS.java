@@ -1,5 +1,6 @@
 package br.gov.previc.dados.consulta.servico;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,22 +26,33 @@ public class LancamentosPlanoWS {
 	@EJB
 	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Long id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("idCaptacao", id);
 		return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByIdCaptacao");
 	}
 
-	public Response doConsultaPorPlano(UriInfo uriInfo, HttpServletRequest request, String id) {
+	public Response doConsultaPorCnpbPorTempo(UriInfo uriInfo, HttpServletRequest request, BigDecimal id, Integer ano, Integer mes, Integer trimestre) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		mapaParametro.put("nuPlano", id);
-		return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuPlano");
-	}
-
-	public Response doConsultaPorAno(UriInfo uriInfo, HttpServletRequest request, String id) {
-		Map<String, Object> mapaParametro=new HashMap<String, Object>();
-		mapaParametro.put("nuAno", id);
-		return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuAno");
+		mapaParametro.put("nuAno", ano);
+		if (mes == 0 && trimestre == 0){
+			return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesIsNullAndNuTrimestreIsNull");
+		}
+		else if (mes == 0 && trimestre != 0) {
+			mapaParametro.put("nuTrimestre", mes);
+			return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesIsNullAndNuTrimestre");
+		}
+		else if (mes != 0 && trimestre == 0) {
+			mapaParametro.put("nuMes", mes);
+			return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesAndNuTrimestreIsNull");
+		}
+		else {
+			mapaParametro.put("nuMes", mes);
+			mapaParametro.put("nuTrimestre", trimestre);
+			return 	doConsultaGenerica(request, mapaParametro, "LancamentosPlanoModel.findByNuPlanoAndNuAnoAndNuMesAndNuTrimestre");
+		}
+		
 	}
 	public Response doConsultaGenerica(HttpServletRequest request,  Map<String, Object> mapaParametro, String query) {
 		try{
