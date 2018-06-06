@@ -20,14 +20,14 @@ public class RespostaConsulta {
 	@XmlElementWrapper(name="Items")
 	@XmlElements
     ({
-        @XmlElement(name = "Item", type = ItemRespostaCadastrosPessoasFisicasSpc.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaEfpcs.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaGestoesPlano.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaHistoricosCaptacao.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaLancamentosPlano.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaPessoasJuridicasSpc.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaPlanosBeneficios.class, required = false),
-        @XmlElement(name = "Item", type = ItemRespostaSituacoesPlano.class, required = false)
+        @XmlElement(name = "ItemRespostaCadastrosPessoasFisicasSpc", type = ItemRespostaCadastrosPessoasFisicasSpc.class, required = false),
+        @XmlElement(name = "ItemRespostaEfpcs", type = ItemRespostaEfpcs.class, required = false),
+        @XmlElement(name = "ItemRespostaGestoesPlano", type = ItemRespostaGestoesPlano.class, required = false),
+        @XmlElement(name = "ItemRespostaHistoricosCaptacao", type = ItemRespostaHistoricosCaptacao.class, required = false),
+        @XmlElement(name = "ItemRespostaLancamentosPlano", type = ItemRespostaLancamentosPlano.class, required = false),
+        @XmlElement(name = "ItemRespostaPessoasJuridicasSpc", type = ItemRespostaPessoasJuridicasSpc.class, required = false),
+        @XmlElement(name = "ItemRespostaPlanosBeneficios", type = ItemRespostaPlanosBeneficios.class, required = false),
+        @XmlElement(name = "ItemRespostaSituacoesPlano", type = ItemRespostaSituacoesPlano.class, required = false)
     })   
 	public List<ItemResposta> getItems() {
 		return items;

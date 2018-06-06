@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import br.gov.previc.dados.model.GestoesPlanoModel;
 
-@XmlType(propOrder = {"dtFimTransfGestao","dtIniGestao","idGestaoPlano","idPlano","nuMatriculaEfpc"})
+@XmlType(propOrder = {"dtFimTransfGestao","dtIniGestao","idGestaoPlano","idPlano","nuMatriculaEfpc","dtInicioTransferencia"})
 public class ItemRespostaGestoesPlano extends ItemResposta{
 
 	private Date dtFimTransfGestao;
@@ -15,6 +15,7 @@ public class ItemRespostaGestoesPlano extends ItemResposta{
 	private Integer idGestaoPlano;
 	private Integer idPlano;
 	private Integer nuMatriculaEfpc;
+	private Date dtInicioTransferencia;
 
 	public ItemRespostaGestoesPlano(GestoesPlanoModel r) {
 		this.dtFimTransfGestao = r.getDtFimTransfGestao();
@@ -22,6 +23,7 @@ public class ItemRespostaGestoesPlano extends ItemResposta{
 		this.idGestaoPlano = r.getIdGestaoPlano();
 		this.idPlano = r.getIdPlano();
 		this.nuMatriculaEfpc = r.getNuMatriculaEfpc();
+		this.dtInicioTransferencia = r.getDtIniTransferencia();
 		
 	}
 	public ItemRespostaGestoesPlano() {
@@ -47,7 +49,10 @@ public class ItemRespostaGestoesPlano extends ItemResposta{
 	public Integer getNuMatriculaEfpc() {
 		return nuMatriculaEfpc;
 	}
-
+	@XmlElement(name="DtInicioTransferencia")
+	public Date getDtInicioTransferencia() {
+		return dtInicioTransferencia;
+	}
 	public void setDtFimTransfGestao(Date dtFimTransfGestao) {
 		this.dtFimTransfGestao = dtFimTransfGestao;
 	}
@@ -66,6 +71,9 @@ public class ItemRespostaGestoesPlano extends ItemResposta{
 
 	public void setNuMatriculaEfpc(Integer nuMatriculaEfpc) {
 		this.nuMatriculaEfpc = nuMatriculaEfpc;
+	}
+	public void setDtInicioTransferencia(Date dtInicioTransferencia) {
+		this.dtInicioTransferencia = dtInicioTransferencia;
 	}
 
 }
