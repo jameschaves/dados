@@ -16,7 +16,9 @@ public class DadosWSApplication extends Application
 
    public DadosWSApplication()
    {
-      singletons.add(new DadosWS());
+      singletons.add(new CadWS());
+      singletons.add(new CandWS());
+      singletons.add(new SicadiWS());
       singletons.add(new SecurityFilter());
    }
 

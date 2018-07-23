@@ -1,8 +1,5 @@
 */target/**
 */target/*
-/sta/negocio/target/
-/sta/webservices/target/
-/sta/web/target/
 *.jar
 *.war
 *.ear

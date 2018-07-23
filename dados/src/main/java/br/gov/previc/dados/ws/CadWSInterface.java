@@ -15,8 +15,8 @@ import javax.ws.rs.core.UriInfo;
 
 
 @RolesAllowed("usuario")
-@Path("dados")
-public interface DadosWSInterface {
+@Path("cad")
+public interface CadWSInterface {
 	
 	@GET
     @Path("pessoasjuridicasspc/{id}") 
@@ -97,55 +97,6 @@ public interface DadosWSInterface {
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	
-	@GET
-    @Path("cadastrospessoasfisicasspc/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaCadastrosPessoasFisicasSpc(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") Integer id);
 	
-	@GET
-    @Path("cadastrospessoasfisicasspc/cpf/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaCadastrosPessoasFisicasSpcPorCpf(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") BigDecimal id);
-	
-	@GET
-    @Path("lancamentosplano/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaLancamentosPlano(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") Long id);
-	
-	@GET
-    @Path("lancamentosplano/cnpb/{id}/ano/{ano}/mes/{mes}/trimestre/{trimestre}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaLancamentosPlanoPorCnpbPorTempo(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") BigDecimal id, 
-			@PathParam(value = "ano") Integer ano, 
-			@PathParam(value = "mes") Integer mes, 
-			@PathParam(value = "trimestre") Integer trimestre);
-	
-	@GET
-    @Path("historicoscaptacao/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaHistoricosCaptacao(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") Integer id);
-	
-	@GET
-    @Path("historicoscaptacao/efpc/{id}")
-    @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaHistoricosCaptacaoPorEfpc(
-			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request,  
-			@PathParam(value = "id") Integer id);
 	
 }
