@@ -9,12 +9,20 @@
 
 <context-param>
     <param-name>resteasy.jndi.resources</param-name>
-    <param-value>java:module/DadosWS</param-value>
+    <param-value>java:module/CadWS</param-value>
+</context-param>
+<context-param>
+    <param-name>resteasy.jndi.resources</param-name>
+    <param-value>java:module/CandWS</param-value>
+</context-param>
+<context-param>
+    <param-name>resteasy.jndi.resources</param-name>
+    <param-value>java:module/SicadiWS</param-value>
 </context-param>
 
 <security-constraint>
   <web-resource-collection>
-	<web-resource-name>dados</web-resource-name>
+	<web-resource-name>rest</web-resource-name>
     <url-pattern>/*</url-pattern>
   </web-resource-collection>
   <user-data-constraint>
