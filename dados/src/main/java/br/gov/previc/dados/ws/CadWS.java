@@ -3,6 +3,7 @@ package br.gov.previc.dados.ws;
 import java.math.BigDecimal;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -12,7 +13,7 @@ import br.gov.previc.dados.consulta.servico.GestoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.PessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.PlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.SituacoesPlanoWS;
-
+@Stateless
 public class CadWS implements CadWSInterface{
 	@EJB
 	PessoasJuridicasSpcWS pessoasJuridicasSpcWS;

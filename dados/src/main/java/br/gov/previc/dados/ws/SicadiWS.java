@@ -3,13 +3,14 @@ package br.gov.previc.dados.ws;
 import java.math.BigDecimal;
 
 import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 import br.gov.previc.dados.consulta.servico.HistoricosCaptacaoWS;
 import br.gov.previc.dados.consulta.servico.LancamentosPlanoWS;
-
+@Stateless
 public class SicadiWS implements SicadiWSInterface{
 	@EJB
 	HistoricosCaptacaoWS historicosCaptacaoWS;
