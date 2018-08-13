@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import br.gov.previc.dados.consulta.servico.EfpcsWS;
 import br.gov.previc.dados.consulta.servico.GestoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.PessoasJuridicasSpcWS;
@@ -25,11 +28,11 @@ public class CadWS implements CadWSInterface{
 	GestoesPlanoWS gestoesPlanoWS; 
 	@EJB
 	SituacoesPlanoWS situacoesPlanoWS;
-	
+	static final Logger logger = LogManager.getLogger();
 	
 	@Override
 	public Response consultaPessoasJuridicasSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
-		
+		logger.debug("PessoasJuridicasSpcWS pessoasJuridicasSpcWS = " + pessoasJuridicasSpcWS);
 		return pessoasJuridicasSpcWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
