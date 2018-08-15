@@ -1,4 +1,4 @@
-package br.gov.previc.dados.consulta.servico;
+package br.gov.previc.dados.consulta.servico.impl;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -17,12 +17,13 @@ import org.apache.logging.log4j.Logger;
 
 import br.gov.previc.dados.consulta.resposta.ItemRespostaLancamentosPlano;
 import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
+import br.gov.previc.dados.consulta.servico.ILancamentosPlanoWS;
 import br.gov.previc.dados.dao.DadosDaoInterface;
 import br.gov.previc.dados.model.LancamentosPlanoModel;
 import br.gov.previc.dados.utils.Utils;
 
 @Stateless
-public class LancamentosPlanoWS {
+public class LancamentosPlanoWS implements ILancamentosPlanoWS {
 	@EJB
 	DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();

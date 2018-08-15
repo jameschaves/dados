@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import br.gov.previc.dados.consulta.servico.CadastrosPessoasFisicasSpcWS;
+import br.gov.previc.dados.consulta.servico.ICadastrosPessoasFisicasSpcWS;
 @Stateless
 public class CandWS implements CandWSInterface{
 	@EJB
-	CadastrosPessoasFisicasSpcWS cadastrosPessoasFisicasSpcWS; 
+	ICadastrosPessoasFisicasSpcWS cadastrosPessoasFisicasSpcWS; 
 	
 	@Override
 	public Response consultaCadastrosPessoasFisicasSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {

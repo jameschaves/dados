@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-import br.gov.previc.dados.consulta.servico.HistoricosCaptacaoWS;
-import br.gov.previc.dados.consulta.servico.LancamentosPlanoWS;
+import br.gov.previc.dados.consulta.servico.IHistoricosCaptacaoWS;
+import br.gov.previc.dados.consulta.servico.ILancamentosPlanoWS;
 @Stateless
 public class SicadiWS implements SicadiWSInterface{
 	@EJB
-	HistoricosCaptacaoWS historicosCaptacaoWS;
+	IHistoricosCaptacaoWS historicosCaptacaoWS;
 	@EJB
-	LancamentosPlanoWS lancamentosPlanoWS;
+	ILancamentosPlanoWS lancamentosPlanoWS;
 	
 
 	@Override

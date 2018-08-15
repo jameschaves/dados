@@ -1,4 +1,4 @@
-package br.gov.previc.dados.consulta.servico;
+package br.gov.previc.dados.consulta.servico.impl;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -15,39 +15,43 @@ import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import br.gov.previc.dados.consulta.resposta.ItemRespostaCadastrosPessoasFisicasSpc;
+import br.gov.previc.dados.consulta.resposta.ItemRespostaPessoasJuridicasSpc;
 import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
+import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.dao.DadosDaoInterface;
-import br.gov.previc.dados.model.CadastrosPessoasFisicasSpcModel;
+import br.gov.previc.dados.model.PessoasJuridicasSpcModel;
 import br.gov.previc.dados.utils.Utils;
 
 @Stateless
-public class CadastrosPessoasFisicasSpcWS {
+public class PessoasJuridicasSpcWS implements IPessoasJuridicasSpcWS{
 	@EJB
-	DadosDaoInterface dao;
+	DadosDaoInterface dao; 
 	static final Logger logger = LogManager.getLogger();
+	public PessoasJuridicasSpcWS(){	
+	}
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
-		mapaParametro.put("idPessoaFisica", id);
-		return 	doConsultaGenerica(request, mapaParametro, "CadastrosPessoasFisicasSpcModel.findByIdPessoaFisica");	
+		mapaParametro.put("idPjSpc", id);
+		return 	doConsultaGenerica(uriInfo, request, mapaParametro, "PessoasJuridicasSpcModel.findByIdPjSpc");	
 	}
-
-	public Response doConsultaPorCpf(UriInfo uriInfo, HttpServletRequest request, BigDecimal id) {
+	public Response doConsultaPorCnpj(UriInfo uriInfo, HttpServletRequest request, BigDecimal cnpj) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
-		mapaParametro.put("nuCpf", id);
-		return 	doConsultaGenerica(request, mapaParametro, "CadastrosPessoasFisicasSpcModel.findByNuCpf");	
+		mapaParametro.put("nuCnpj", cnpj);
+		return 	doConsultaGenerica(uriInfo, request,  mapaParametro, "PessoasJuridicasSpcModel.findByNuCnpj");	
 	}
-	public Response doConsultaGenerica(HttpServletRequest request,  Map<String, Object> mapaParametro, String query) {
+	
+	public Response doConsultaGenerica(UriInfo uriInfo, HttpServletRequest request, Map<String, Object> mapaParametro, String query) {
 		try{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
 			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
-					.map(r -> new ItemRespostaCadastrosPessoasFisicasSpc((CadastrosPessoasFisicasSpcModel) r)).collect(Collectors.toList()));
+					.map(r -> new ItemRespostaPessoasJuridicasSpc((PessoasJuridicasSpcModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}
 		catch (Exception e){
 			logger.info("Erro na requisicao de origem "+Utils.getClientIp(request) +" com a mensagem "+e.getMessage());
 			return Response.status(403).entity(e.getMessage()).build();
-		}
+		}		
 	}
+
 }

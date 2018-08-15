@@ -14,7 +14,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import br.gov.previc.dados.consulta.servico.EfpcsWS;
+import br.gov.previc.dados.consulta.servico.impl.EfpcsWS;
 import br.gov.previc.dados.dao.DadosDao;
 import br.gov.previc.dados.model.EfpcsModel;
 

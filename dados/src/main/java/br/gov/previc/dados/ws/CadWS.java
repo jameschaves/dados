@@ -11,23 +11,23 @@ import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import br.gov.previc.dados.consulta.servico.EfpcsWS;
-import br.gov.previc.dados.consulta.servico.GestoesPlanoWS;
-import br.gov.previc.dados.consulta.servico.PessoasJuridicasSpcWS;
-import br.gov.previc.dados.consulta.servico.PlanosBeneficiosWS;
-import br.gov.previc.dados.consulta.servico.SituacoesPlanoWS;
+import br.gov.previc.dados.consulta.servico.IEfpcsWS;
+import br.gov.previc.dados.consulta.servico.IGestoesPlanoWS;
+import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
+import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
+import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
 @Stateless
 public class CadWS implements CadWSInterface{
 	@EJB
-	PessoasJuridicasSpcWS pessoasJuridicasSpcWS;
+	IPessoasJuridicasSpcWS pessoasJuridicasSpcWS;
 	@EJB
-	EfpcsWS efpcsWS;
+	IEfpcsWS efpcsWS;
 	@EJB
-	PlanosBeneficiosWS planosBeneficiosWS;
+	IPlanosBeneficiosWS planosBeneficiosWS;
 	@EJB
-	GestoesPlanoWS gestoesPlanoWS; 
+	IGestoesPlanoWS gestoesPlanoWS; 
 	@EJB
-	SituacoesPlanoWS situacoesPlanoWS;
+	ISituacoesPlanoWS situacoesPlanoWS;
 	static final Logger logger = LogManager.getLogger();
 	
 	@Override
