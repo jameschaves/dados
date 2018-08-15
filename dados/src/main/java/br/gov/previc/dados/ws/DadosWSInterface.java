@@ -3,6 +3,7 @@ package br.gov.previc.dados.ws;
 import java.math.BigDecimal;
 
 import javax.annotation.security.RolesAllowed;
+import javax.ejb.Local;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,20 +14,19 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-
+@Local
 @RolesAllowed("usuario")
-@Path("cad")
-public interface CadWSInterface {
-	
+@Path("dados")
+public interface DadosWSInterface {
 	@GET
-    @Path("pessoasjuridicasspc/{id}") 
+    @Path("cad/pessoasjuridicasspc/{id}") 
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaPessoasJuridicasSpc(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	@GET
-    @Path("pessoasjuridicasspc/cnpj/{cnpj}")
+    @Path("cad/pessoasjuridicasspc/cnpj/{cnpj}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaPessoasJuridicasSpcPorCnpj(
 			@Context UriInfo uriInfo, 
@@ -34,7 +34,7 @@ public interface CadWSInterface {
 			@PathParam(value = "cnpj") BigDecimal cnpj);
 	
 	@GET
-    @Path("efpcs/{id}")
+    @Path("cad/efpcs/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaEfpcs(
 			@Context UriInfo uriInfo, 
@@ -42,7 +42,7 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("efpcs/idpjspc/{id}")
+    @Path("cad/efpcs/idpjspc/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaEfpcsPorIdPjSpc(
 			@Context UriInfo uriInfo, 
@@ -50,7 +50,7 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("planosbeneficios/{id}")
+    @Path("cad/planosbeneficios/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaPlanosBeneficios(
 			@Context UriInfo uriInfo, 
@@ -58,7 +58,7 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("planosbeneficios/cnpb/{cnpb}")
+    @Path("cad/planosbeneficios/cnpb/{cnpb}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaPlanosBeneficiosPorCnpb(
 			@Context UriInfo uriInfo, 
@@ -66,7 +66,7 @@ public interface CadWSInterface {
 			@PathParam(value = "cnpb") Long cnpb);
 	// ---
 	@GET
-    @Path("situacoesplano/{id}")
+    @Path("cad/situacoesplano/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaSituacoesPlano(
 			@Context UriInfo uriInfo, 
@@ -74,7 +74,7 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("gestoesplano/{id}")
+    @Path("cad/gestoesplano/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaGestoesPlano(
 			@Context UriInfo uriInfo, 
@@ -82,7 +82,7 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("gestoesplano/efpc/{id}")
+    @Path("cad/gestoesplano/efpc/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaGestoesPlanoPorEfpc(
 			@Context UriInfo uriInfo, 
@@ -90,13 +90,62 @@ public interface CadWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("gestoesplano/plano/{id}")
+    @Path("cad/gestoesplano/plano/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaGestoesPlanoPorPlano(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	
+	@GET
+    @Path("cand/cadastrospessoasfisicasspc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaCadastrosPessoasFisicasSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
 	
+	@GET
+    @Path("cand/cadastrospessoasfisicasspc/cpf/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaCadastrosPessoasFisicasSpcPorCpf(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") BigDecimal id);
+	
+	@GET
+    @Path("sicadi/lancamentosplano/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaLancamentosPlano(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Long id);
+	
+	@GET
+    @Path("sicadi/lancamentosplano/cnpb/{id}/ano/{ano}/mes/{mes}/trimestre/{trimestre}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaLancamentosPlanoPorCnpbPorTempo(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") BigDecimal id, 
+			@PathParam(value = "ano") Integer ano, 
+			@PathParam(value = "mes") Integer mes, 
+			@PathParam(value = "trimestre") Integer trimestre);
+	
+	@GET
+    @Path("sicadi/historicoscaptacao/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHistoricosCaptacao(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
+	@GET
+    @Path("sicadi/historicoscaptacao/efpc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHistoricosCaptacaoPorEfpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
 	
 }

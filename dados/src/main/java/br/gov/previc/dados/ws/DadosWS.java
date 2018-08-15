@@ -11,13 +11,17 @@ import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import br.gov.previc.dados.consulta.servico.ICadastrosPessoasFisicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IEfpcsWS;
 import br.gov.previc.dados.consulta.servico.IGestoesPlanoWS;
+import br.gov.previc.dados.consulta.servico.IHistoricosCaptacaoWS;
+import br.gov.previc.dados.consulta.servico.ILancamentosPlanoWS;
 import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
+
 @Stateless
-public class CadWS implements CadWSInterface{
+public class DadosWS implements DadosWSInterface{
 	@EJB
 	IPessoasJuridicasSpcWS pessoasJuridicasSpcWS;
 	@EJB
@@ -28,6 +32,12 @@ public class CadWS implements CadWSInterface{
 	IGestoesPlanoWS gestoesPlanoWS; 
 	@EJB
 	ISituacoesPlanoWS situacoesPlanoWS;
+	@EJB
+	ICadastrosPessoasFisicasSpcWS cadastrosPessoasFisicasSpcWS;
+	@EJB
+	IHistoricosCaptacaoWS historicosCaptacaoWS;
+	@EJB
+	ILancamentosPlanoWS lancamentosPlanoWS;
 	static final Logger logger = LogManager.getLogger();
 	
 	@Override
@@ -74,4 +84,30 @@ public class CadWS implements CadWSInterface{
 	public Response consultaGestoesPlanoPorPlano(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return gestoesPlanoWS.doConsultaPorPlano(uriInfo, request, id);
 	}
+	@Override
+	public Response consultaCadastrosPessoasFisicasSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return cadastrosPessoasFisicasSpcWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaCadastrosPessoasFisicasSpcPorCpf(UriInfo uriInfo, HttpServletRequest request, BigDecimal id) {
+		return cadastrosPessoasFisicasSpcWS.doConsultaPorCpf(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaLancamentosPlano(UriInfo uriInfo, HttpServletRequest request, Long id) {
+		return lancamentosPlanoWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaLancamentosPlanoPorCnpbPorTempo(UriInfo uriInfo, HttpServletRequest request, BigDecimal	 id, Integer ano, Integer mes, Integer trimestre) {
+		return lancamentosPlanoWS.doConsultaPorCnpbPorTempo(uriInfo, request, id, ano, mes, trimestre);
+	}
+	@Override
+	public Response consultaHistoricosCaptacao(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return historicosCaptacaoWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaHistoricosCaptacaoPorEfpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return historicosCaptacaoWS.doConsultaPorEfpc(uriInfo, request, id);
+	}
+	
+	
 }
