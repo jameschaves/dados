@@ -20,6 +20,8 @@ import br.gov.previc.dados.consulta.servico.ILancamentosPlanoWS;
 import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
+import br.gov.previc.dados.consulta.servico.ITipoFuncaoDirigentesWS;
+import br.gov.previc.dados.consulta.servico.IHabilitacoesAnexoWS;
 
 @Stateless
 public class DadosWS implements DadosWSInterface{
@@ -41,6 +43,10 @@ public class DadosWS implements DadosWSInterface{
 	ILancamentosPlanoWS lancamentosPlanoWS;
 	@EJB
 	IDirigentesWS dirigentesWS;
+	@EJB
+	IHabilitacoesAnexoWS habilitacaoAnexoWS;
+	@EJB
+	ITipoFuncaoDirigentesWS tipoFuncaoDirigentesWS;
 	static final Logger logger = LogManager.getLogger();
 	
 	@Override
@@ -112,13 +118,24 @@ public class DadosWS implements DadosWSInterface{
 		return historicosCaptacaoWS.doConsultaPorEfpc(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaDirigente(UriInfo uriInfo, HttpServletRequest request, Integer id) {
-		return dirigenteWS.doConsulta(uriInfo, request, id);
+	public Response consultaDirigentes(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return dirigentesWS.doConsulta(uriInfo, request, id);
 	}
 	@Override
-	public Response consultaDirigentePorIdCadastroSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
-		return dirigenteWS.doConsultaPorIdCadastroSpc(uriInfo, request, id);
+	public Response consultaDirigentesPorIdCadastroSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return dirigentesWS.doConsultaPorIdCadastroSpc(uriInfo, request, id);
 	}
-	
+	@Override
+	public Response consultaHabilitacoesAnexo(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return habilitacaoAnexoWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaHabilitacoesAnexoPorIdCadastroSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return habilitacaoAnexoWS.doConsultaPorIdCadastroSpc(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaTipoFuncaoDirigentes(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return tipoFuncaoDirigentesWS.doConsulta(uriInfo, request, id);
+	}
 	
 }

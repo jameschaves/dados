@@ -10,7 +10,10 @@ import javax.xml.bind.annotation.XmlSeeAlso;
     ItemRespostaLancamentosPlano.class, 
     ItemRespostaPessoasJuridicasSpc.class, 
     ItemRespostaPlanosBeneficios.class, 
-    ItemRespostaSituacoesPlano.class
+    ItemRespostaSituacoesPlano.class,
+    ItemRespostaDirigentes.class,
+    ItemRespostaHabilitacoesAnexo.class,
+    ItemRespostaTipoFuncaoDirigentes.class
 })
 public class ItemResposta {
 	public ItemResposta() {

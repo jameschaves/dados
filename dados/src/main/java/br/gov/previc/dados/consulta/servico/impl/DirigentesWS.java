@@ -14,31 +14,30 @@ import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import br.gov.previc.dados.consulta.resposta.ItemRespostaEfpcs;
+import br.gov.previc.dados.consulta.resposta.ItemRespostaDirigentes;
 import br.gov.previc.dados.consulta.resposta.RespostaConsulta;
 import br.gov.previc.dados.consulta.servico.IDirigentesWS;
-import br.gov.previc.dados.consulta.servico.IEfpcsWS;
 import br.gov.previc.dados.dao.DadosDaoInterface;
-import br.gov.previc.dados.model.EfpcsModel;
+import br.gov.previc.dados.model.DirigentesModel;
 import br.gov.previc.dados.utils.Utils;
 
 @Stateless
-public class DirigenteWS implements IDirigentesWS{
+public class DirigentesWS implements IDirigentesWS{
 	@EJB
 	public DadosDaoInterface dao;
 	static final Logger logger = LogManager.getLogger();
-	public DirigenteWS(){	
+	public DirigentesWS(){	
 	}
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
-		mapaParametro.put("nuMatriculaEfpc", id);
-		return 	doConsultaGenerica(request, mapaParametro, "EfpcsModel.findByNuMatriculaEfpc");	
+		mapaParametro.put("idDirigente", id);
+		return 	doConsultaGenerica(request, mapaParametro, "DirigentesModel.findByIdDirigente");	
 	}
 	
 	public Response doConsultaPorIdCadastroSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
-		mapaParametro.put("idPjSpc", id);
-		return 	doConsultaGenerica(request, mapaParametro, "EfpcsModel.findByIdPjSpc");	
+		mapaParametro.put("idCadastroSpc", id);
+		return 	doConsultaGenerica(request, mapaParametro, "DirigentesModel.findByIdCadastroSpc");	
 	}
 	
 	public Response doConsultaGenerica(HttpServletRequest request,  Map<String, Object> mapaParametro, String query) {
@@ -46,7 +45,7 @@ public class DirigenteWS implements IDirigentesWS{
 			List<Object> recuperados = dao.listByQueryName(query,mapaParametro);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou " + recuperados.size() +" resultados.");
 			RespostaConsulta resultadoConsulta = new RespostaConsulta(recuperados.stream()
-					.map(r -> new ItemRespostaEfpcs((EfpcsModel) r)).collect(Collectors.toList()));
+					.map(r -> new ItemRespostaDirigentes((DirigentesModel) r)).collect(Collectors.toList()));
 			return Response.ok().entity(resultadoConsulta).build();
 		}
 		catch (Exception e){

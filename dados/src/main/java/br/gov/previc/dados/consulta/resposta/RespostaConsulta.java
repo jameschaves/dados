@@ -27,7 +27,10 @@ public class RespostaConsulta {
         @XmlElement(name = "ItemRespostaLancamentosPlano", type = ItemRespostaLancamentosPlano.class, required = false),
         @XmlElement(name = "ItemRespostaPessoasJuridicasSpc", type = ItemRespostaPessoasJuridicasSpc.class, required = false),
         @XmlElement(name = "ItemRespostaPlanosBeneficios", type = ItemRespostaPlanosBeneficios.class, required = false),
-        @XmlElement(name = "ItemRespostaSituacoesPlano", type = ItemRespostaSituacoesPlano.class, required = false)
+        @XmlElement(name = "ItemRespostaSituacoesPlano", type = ItemRespostaSituacoesPlano.class, required = false),
+        @XmlElement(name = "ItemRespostaDirigentes", type = ItemRespostaDirigentes.class, required = false),
+        @XmlElement(name = "ItemRespostaHabilitacaoAnexo", type = ItemRespostaHabilitacoesAnexo.class, required = false),
+        @XmlElement(name = "ItemRespostaTipoFuncaoDirigentes", type = ItemRespostaTipoFuncaoDirigentes.class, required = false)
     })   
 	public List<ItemResposta> getItems() {
 		return items;

@@ -13,7 +13,7 @@ import org.junit.Test;
 public class DadosWSIT {
 
 	static String login = "dados";
-	static String password = "P@$$w0rd";
+	static String password = "P@ss4dev";
 	static String host = "localhost"; 
 	static String port = "8443";
 	// ZGFkb3M6UEAkJHcwcmQ=
@@ -130,6 +130,41 @@ public class DadosWSIT {
 		System.out.println("\n\nTestando consulta a HistoricosCaptacao por Efpc...");
 		String idDeTeste="3037";
 		String url = "https://"+host+":"+port+"/dados/rest/dados/sicadi/historicoscaptacao/efpc/"+idDeTeste;	
+		testaUrl(url);	
+	}
+	@Test
+	public void testDirigentes() throws JAXBException {
+		System.out.println("\n\nTestando consulta a Dirigentes...");
+		String idDeTeste="1";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/cand/dirigentes/"+idDeTeste;	
+		testaUrl(url);	
+	}
+	@Test
+	public void testDirigentesPorIdCadastroSpc() throws JAXBException {
+		System.out.println("\n\nTestando consulta a Dirigentes...");
+		String idDeTeste="23998";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/cand/dirigentes/cadastro/"+idDeTeste;	
+		testaUrl(url);	
+	}
+	@Test
+	public void testHabilitacoesAnexo() throws JAXBException {
+		System.out.println("\n\nTestando consulta a HabilitacoesAnexo...");
+		String idDeTeste="2350";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/cand/habilitacoesanexo/"+idDeTeste;	
+		testaUrl(url);	
+	}
+	@Test
+	public void testHabilitacoesAnexoPorIdCaptacao() throws JAXBException {
+		System.out.println("\n\nTestando consulta a HabilitacoesAnexo...");
+		String idDeTeste="23965";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/cand/habilitacoesanexo/cadastro/"+idDeTeste;	
+		testaUrl(url);	
+	}
+	@Test
+	public void testTipoFuncaoDirigentes() throws JAXBException {
+		System.out.println("\n\nTestando consulta a TipoFuncaoDirigentes...");
+		String idDeTeste="0";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/dados/tipofuncaodirigentes/"+idDeTeste;	
 		testaUrl(url);	
 	}
 	public void testaUrl(String url) {

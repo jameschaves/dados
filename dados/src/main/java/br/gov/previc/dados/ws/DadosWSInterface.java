@@ -151,15 +151,39 @@ public interface DadosWSInterface {
 	@GET
     @Path("cand/dirigentes/{id}")
     @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaDirigente(
+	public Response consultaDirigentes(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("cand/dirigentes/efpc/{id}")
+    @Path("cand/dirigentes/cadastro/{id}")
     @Produces(MediaType.APPLICATION_XML)  
-	public Response consultaDirigentePorIdCadastroSpc(
+	public Response consultaDirigentesPorIdCadastroSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
+	@GET
+    @Path("cand/habilitacoesanexo/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHabilitacoesAnexo(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
+	@GET
+    @Path("cand/habilitacoesanexo/cadastro/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHabilitacoesAnexoPorIdCadastroSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
+	@GET
+    @Path("dados/tipofuncaodirigentes/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaTipoFuncaoDirigentes(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
