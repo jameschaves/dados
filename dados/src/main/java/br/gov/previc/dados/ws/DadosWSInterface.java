@@ -148,4 +148,20 @@ public interface DadosWSInterface {
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	
+	@GET
+    @Path("cand/dirigentes/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaDirigente(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
+	@GET
+    @Path("cand/dirigentes/efpc/{id}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaDirigentePorIdCadastroSpc(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,  
+			@PathParam(value = "id") Integer id);
+	
 }

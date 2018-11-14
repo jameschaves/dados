@@ -12,7 +12,7 @@ import javax.persistence.Query;
 @Stateless
 public class DadosDao implements DadosDaoInterface{
 
-	@PersistenceContext
+	@PersistenceContext 
 	EntityManager manager;
 	
 	@Override

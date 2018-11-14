@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import br.gov.previc.dados.consulta.servico.ICadastrosPessoasFisicasSpcWS;
+import br.gov.previc.dados.consulta.servico.IDirigentesWS;
 import br.gov.previc.dados.consulta.servico.IEfpcsWS;
 import br.gov.previc.dados.consulta.servico.IGestoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.IHistoricosCaptacaoWS;
@@ -38,6 +39,8 @@ public class DadosWS implements DadosWSInterface{
 	IHistoricosCaptacaoWS historicosCaptacaoWS;
 	@EJB
 	ILancamentosPlanoWS lancamentosPlanoWS;
+	@EJB
+	IDirigentesWS dirigentesWS;
 	static final Logger logger = LogManager.getLogger();
 	
 	@Override
@@ -107,6 +110,14 @@ public class DadosWS implements DadosWSInterface{
 	@Override
 	public Response consultaHistoricosCaptacaoPorEfpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return historicosCaptacaoWS.doConsultaPorEfpc(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaDirigente(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return dirigenteWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaDirigentePorIdCadastroSpc(UriInfo uriInfo, HttpServletRequest request, Integer id) {
+		return dirigenteWS.doConsultaPorIdCadastroSpc(uriInfo, request, id);
 	}
 	
 	
