@@ -187,5 +187,37 @@ public interface DadosWSInterface {
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
+
+	
+	@GET
+    @Path("cand/habilitacoesanexo/cadastroNome/{nome}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHabilitacoesAnexoPorNome(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
+	
+	@GET
+    @Path("cand/habilitacoesanexo/cadastroCpf/{cpf}")
+    @Produces(MediaType.APPLICATION_XML)  
+	public Response consultaHabilitacoesAnexoPorCpf(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
+	
+//	 @GET
+//	    @Path("document/{id}/file")
+//	    @Produces("application/pdf")
+//	    public Response findContentBase64(@PathParam("id") String documentId) {
+//	        byte[] bytes = null;
+//	        try {
+//	            try {
+//	                bytes = org.apache.commons.io.IOUtils.toByteArray(docServices.fileContent(documentId));
+//	            } catch (UnknownHostException | EntityNotFoundException ex) {
+//	               log.error("Error: " + ex.getMessage());
+//	            }
+//	        } catch (ConversionException | IOException ex) {
+//	             log.error("Error: " + ex.getMessage());
+//	        }
+//	        return Response.ok(new ByteArrayInputStream(bytes)).build();
+//	    }	
 	
 }

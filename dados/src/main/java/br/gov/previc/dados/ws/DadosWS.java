@@ -21,6 +21,7 @@ import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.ITipoFuncaoDirigentesWS;
+import br.gov.previc.dados.consulta.servico.IDadosXQueryWS;
 import br.gov.previc.dados.consulta.servico.IHabilitacoesAnexoWS;
 
 @Stateless
@@ -46,7 +47,16 @@ public class DadosWS implements DadosWSInterface{
 	@EJB
 	IHabilitacoesAnexoWS habilitacaoAnexoWS;
 	@EJB
+
 	ITipoFuncaoDirigentesWS tipoFuncaoDirigentesWS;
+	@EJB(beanName="DadosXQueryConsultaHabilitacaoPorNomeWS")
+	IDadosXQueryWS consultaHabilitacaoPorNomeWS;
+	@EJB(beanName="DadosXQueryConsultaHabilitacaoPorCpfWS")
+	IDadosXQueryWS consultaHabilitacaoPorCpfWS;
+	
+	
+	
+	
 	static final Logger logger = LogManager.getLogger();
 	
 	@Override
@@ -136,6 +146,14 @@ public class DadosWS implements DadosWSInterface{
 	@Override
 	public Response consultaTipoFuncaoDirigentes(UriInfo uriInfo, HttpServletRequest request, Integer id) {
 		return tipoFuncaoDirigentesWS.doConsulta(uriInfo, request, id);
+	}
+	@Override
+	public Response consultaHabilitacoesAnexoPorNome(UriInfo uriInfo, HttpServletRequest request) {
+		return  consultaHabilitacaoPorNomeWS.doConsulta(uriInfo, request);
+	}
+	@Override
+	public Response consultaHabilitacoesAnexoPorCpf(UriInfo uriInfo, HttpServletRequest request) {
+		return  consultaHabilitacaoPorCpfWS.doConsulta(uriInfo, request);
 	}
 	
 }

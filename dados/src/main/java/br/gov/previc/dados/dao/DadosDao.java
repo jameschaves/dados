@@ -10,16 +10,17 @@ import javax.persistence.Query;
 
 @SuppressWarnings("unchecked")
 @Stateless
-public class DadosDao implements DadosDaoInterface{
+public class DadosDao implements DadosDaoInterface {
 
-	@PersistenceContext 
+	@PersistenceContext
 	EntityManager manager;
-	
+
 	@Override
 	public List<Object> listByQueryName(String queryName) {
 		List<Object> lista = manager.createQuery(queryName).getResultList();
 		return lista;
 	}
+
 	@Override
 	public List<Object> listByQueryName(String queryName, Map<String, Object> mapaParametro) {
 		Query query = manager.createNamedQuery(queryName);
@@ -27,5 +28,12 @@ public class DadosDao implements DadosDaoInterface{
 		List<Object> lista = query.getResultList();
 		return lista;
 	}
-	
+
+	@Override
+	public String resultByQueryName(String sql, Map<String, Object> mapaParametro) {
+		Query query = manager.createNativeQuery(sql);
+		mapaParametro.entrySet().stream().forEach(entry -> query.setParameter(entry.getKey(), entry.getValue()));
+		return (String) query.getSingleResult();
+	}
+
 }
