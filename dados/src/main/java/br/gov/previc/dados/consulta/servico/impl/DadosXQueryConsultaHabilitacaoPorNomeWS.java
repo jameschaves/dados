@@ -28,6 +28,7 @@ public class DadosXQueryConsultaHabilitacaoPorNomeWS implements IDadosXQueryWS{
 			"SELECT @xmlHabilitacao = \r\n" + 
 			"(\r\n" + 
 			"SELECT\r\n" + 
+			"	ID_HABILITACAO AS idHabilitacao, \r\n" + 
 			"	TRIM(NM_PESSOA_FISICA_SPC) AS nome_pessoa_fisica,\r\n" + 
 			"	NU_CPF AS cpf,\r\n" + 
 			"	SG_EFPC AS sigla,\r\n" + 

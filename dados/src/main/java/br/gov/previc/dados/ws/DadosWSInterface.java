@@ -191,33 +191,23 @@ public interface DadosWSInterface {
 	
 	@GET
     @Path("cand/habilitacoesanexo/cadastroNome/{nome}")
-    @Produces(MediaType.APPLICATION_XML)  
+	@Produces(MediaType.APPLICATION_XML + ";charset=utf-8")  
 	public Response consultaHabilitacoesAnexoPorNome(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request);
 	
 	@GET
     @Path("cand/habilitacoesanexo/cadastroCpf/{cpf}")
-    @Produces(MediaType.APPLICATION_XML)  
+    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")  
 	public Response consultaHabilitacoesAnexoPorCpf(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request);
 	
-//	 @GET
-//	    @Path("document/{id}/file")
-//	    @Produces("application/pdf")
-//	    public Response findContentBase64(@PathParam("id") String documentId) {
-//	        byte[] bytes = null;
-//	        try {
-//	            try {
-//	                bytes = org.apache.commons.io.IOUtils.toByteArray(docServices.fileContent(documentId));
-//	            } catch (UnknownHostException | EntityNotFoundException ex) {
-//	               log.error("Error: " + ex.getMessage());
-//	            }
-//	        } catch (ConversionException | IOException ex) {
-//	             log.error("Error: " + ex.getMessage());
-//	        }
-//	        return Response.ok(new ByteArrayInputStream(bytes)).build();
-//	    }	
+	 @GET
+	    @Path("cand/habilitacoesanexo/{id}/file")
+	    @Produces("application/pdf")
+	    public Response findContentBase64(
+				@Context UriInfo uriInfo, 
+				@Context HttpServletRequest request);
 	
 }

@@ -30,10 +30,17 @@ public class DadosDao implements DadosDaoInterface {
 	}
 
 	@Override
-	public String resultByQueryName(String sql, Map<String, Object> mapaParametro) {
+	public String resultByQueryName(String sql, Map<String, Object> mapParametro) {
 		Query query = manager.createNativeQuery(sql);
-		mapaParametro.entrySet().stream().forEach(entry -> query.setParameter(entry.getKey(), entry.getValue()));
+		mapParametro.entrySet().stream().forEach(entry -> query.setParameter(entry.getKey(), entry.getValue()));
 		return (String) query.getSingleResult();
+	}
+
+	@Override
+	public byte[] resultBySql(String sql, Map<String, Object> mapParametro) {
+		Query query = manager.createNativeQuery(sql);
+		mapParametro.entrySet().stream().forEach(entry -> query.setParameter(entry.getKey(), entry.getValue()));
+		return (byte[]) query.getSingleResult();
 	}
 
 }
