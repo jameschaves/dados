@@ -9,6 +9,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -187,27 +188,21 @@ public interface DadosWSInterface {
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
-
 	
 	@GET
-    @Path("cand/habilitacoesanexo/cadastroNome/{nome}")
-	@Produces(MediaType.APPLICATION_XML + ";charset=utf-8")  
-	public Response consultaHabilitacoesAnexoPorNome(
+    @Path("cand/habilitacoesanexo/{id}/file")
+    @Produces("application/pdf")
+    public Response findContentBase64(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request);
-	
+	 
 	@GET
-    @Path("cand/habilitacoesanexo/cadastroCpf/{cpf}")
-    @Produces(MediaType.APPLICATION_XML + ";charset=utf-8")  
-	public Response consultaHabilitacoesAnexoPorCpf(
+    @Path("cand/habilitacoesanexo/cadastro/pesquisar")
+    @Produces(MediaType.APPLICATION_XML)
+	public Response consultaHabilitacoesComParametros(
 			@Context UriInfo uriInfo, 
-			@Context HttpServletRequest request);
-	
-	 @GET
-	    @Path("cand/habilitacoesanexo/{id}/file")
-	    @Produces("application/pdf")
-	    public Response findContentBase64(
-				@Context UriInfo uriInfo, 
-				@Context HttpServletRequest request);
+			@Context HttpServletRequest request,
+			@QueryParam(value = "nome") String nome,
+			@QueryParam(value = "cpf") String cpf);
 	
 }

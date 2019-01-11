@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import br.gov.previc.dados.consulta.servico.ICadastrosPessoasFisicasSpcWS;
+import br.gov.previc.dados.consulta.servico.IConsultaHabilitacaoAnexoPdfWS;
 import br.gov.previc.dados.consulta.servico.IDadosXQueryWS;
 import br.gov.previc.dados.consulta.servico.IDirigentesWS;
 import br.gov.previc.dados.consulta.servico.IEfpcsWS;
@@ -23,7 +24,6 @@ import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.ITipoFuncaoDirigentesWS;
-import br.gov.previc.dados.consulta.servico.IConsultaHabilitacaoAnexoPdfWS;
 
 @Stateless
 public class DadosWS implements DadosWSInterface {
@@ -37,8 +37,10 @@ public class DadosWS implements DadosWSInterface {
 	IGestoesPlanoWS gestoesPlanoWS;
 	@EJB
 	ISituacoesPlanoWS situacoesPlanoWS;
+	
 	@EJB
 	ICadastrosPessoasFisicasSpcWS cadastrosPessoasFisicasSpcWS;
+	
 	@EJB
 	IHistoricosCaptacaoWS historicosCaptacaoWS;
 	@EJB
@@ -53,10 +55,8 @@ public class DadosWS implements DadosWSInterface {
 	@EJB
 	IConsultaHabilitacaoAnexoPdfWS consultaHabilitacaoAnexoPdfWS;
 
-	@EJB(beanName = "DadosXQueryConsultaHabilitacaoPorNomeWS")
-	IDadosXQueryWS consultaHabilitacaoPorNomeWS;
-	@EJB(beanName = "DadosXQueryConsultaHabilitacaoPorCpfWS")
-	IDadosXQueryWS consultaHabilitacaoPorCpfWS;
+	@EJB(beanName = "DadosXQueryConsultaHabilitacaoPorNomeECpfWS")
+	IDadosXQueryWS consultaHabilitacaoPorNomeECpfWS;
 
 	static final Logger logger = LogManager.getLogger();
 
@@ -172,18 +172,14 @@ public class DadosWS implements DadosWSInterface {
 	}
 
 	@Override
-	public Response consultaHabilitacoesAnexoPorNome(UriInfo uriInfo, HttpServletRequest request) {
-		return consultaHabilitacaoPorNomeWS.doConsulta(uriInfo, request);
-	}
-
-	@Override
-	public Response consultaHabilitacoesAnexoPorCpf(UriInfo uriInfo, HttpServletRequest request) {
-		return consultaHabilitacaoPorCpfWS.doConsulta(uriInfo, request);
-	}
-
-	@Override
 	public Response findContentBase64(UriInfo uriInfo, HttpServletRequest request) {
 		return consultaHabilitacaoAnexoPdfWS.doConsulta(uriInfo, request);
+	}
+	
+	@Override
+	public Response consultaHabilitacoesComParametros(UriInfo uriInfo, HttpServletRequest request, String nome,
+			String cpf) {		
+		return consultaHabilitacaoPorNomeECpfWS.doConsulta(uriInfo, request);
 	}
 
 }
