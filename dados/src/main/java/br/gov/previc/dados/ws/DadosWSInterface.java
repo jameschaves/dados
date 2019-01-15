@@ -207,7 +207,7 @@ public interface DadosWSInterface {
 			@QueryParam(value = "cpf") String cpf);
 	
 	@GET
-    @Path("cand/habilitacoesanexo/{id}/file")
+    @Path("cand/habilitacoesanexo/cadastro/efpc")
     @Produces(MediaType.APPLICATION_XML)
     public Response buscarSiglas(
 			@Context UriInfo uriInfo, 
