@@ -204,7 +204,8 @@ public interface DadosWSInterface {
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
 			@QueryParam(value = "nome") String nome,
-			@QueryParam(value = "cpf") String cpf);
+			@QueryParam(value = "cpf") String cpf,
+			@QueryParam(value = "efpc") String efpc);
 	
 	@GET
     @Path("cand/habilitacoesanexo/cadastro/efpc")

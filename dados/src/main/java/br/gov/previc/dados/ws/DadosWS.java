@@ -178,7 +178,7 @@ public class DadosWS implements DadosWSInterface {
 	
 	@Override
 	public Response consultaHabilitacoesComParametros(UriInfo uriInfo, HttpServletRequest request, String nome,
-			String cpf) {		
+			String cpf, String efpc) {		
 		return consultaHabilitacaoPorNomeECpfWS.doConsulta(uriInfo, request);
 	}
 
