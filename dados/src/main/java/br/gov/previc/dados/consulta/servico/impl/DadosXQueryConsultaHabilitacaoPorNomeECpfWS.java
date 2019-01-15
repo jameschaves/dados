@@ -34,10 +34,14 @@ public class DadosXQueryConsultaHabilitacaoPorNomeECpfWS implements IDadosXQuery
 			condicoes = condicoes.concat("  AND NU_CPF = :cpf \r\n");
 		}
 		
+		if(mapa.containsKey("efpc")) {
+			condicoes = condicoes.concat("  AND SG_EFPC = :efpc \r\n");
+		}
+		
 		String sql = "DECLARE @xmlHabilitacao XML;\r\n" + 
 				"SELECT @xmlHabilitacao = \r\n" + 
 				"(\r\n" + 
-				"SELECT\r\n" + 
+				"SELECT \r\n" + 
 				"	ID_HABILITACAO AS idHabilitacao, \r\n" + 
 				"	TRIM(NM_PESSOA_FISICA_SPC) AS nome_pessoa_fisica,\r\n" + 
 				"	NU_CPF AS cpf,\r\n" + 
@@ -58,36 +62,66 @@ public class DadosXQueryConsultaHabilitacaoPorNomeECpfWS implements IDadosXQuery
 				"  ORDER BY NM_PESSOA_FISICA_SPC\r\n" + 
 				"  FOR XML RAW ('habilitacao'), ROOT ('habilitacoes'), ELEMENTS \r\n" + 
 				")\r\n" + 
-				"SELECT  CAST(@xmlHabilitacao AS VARCHAR(MAX))  AS XmlHabilitacao;";
+				"SELECT CAST(@xmlHabilitacao AS VARCHAR(MAX))  AS XmlHabilitacao;";
 		
 		return sql;
 	}
+	
+	public String retornarSqlSiglas() {
 
+		String sql = "DECLARE @xmlSiglas XML;\r\n" + 
+				"SELECT @xmlSiglas = \r\n" + 
+				"(\r\n" + 
+				"SELECT \r\n" + 
+				"	SG_EFPC AS sigla,\r\n" +
+				"	NU_MATRICULA_EFPC AS idEfpc\r\n" + 
+				"\r\n" + 
+				"  FROM [DADOS].[CADSPC].[EFPCS]\r\n" +  
+				"  ORDER BY SG_EFPC\r\n" + 
+				"  FOR XML RAW('efpc'), ELEMENTS\r\n" + 
+				")\r\n" + 
+				"SELECT CAST(@xmlSiglas AS VARCHAR(MAX))  AS XmlSiglas;";
+		return sql;
+	}
+	
 	public DadosXQueryConsultaHabilitacaoPorNomeECpfWS(){	
 	}
+	
 	@Override
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request) {
 		Map<String, Object> mapaParametro=new HashMap<String, Object>();
 		
 		String nome = uriInfo.getQueryParameters().getFirst("nome");
 		String cpf = uriInfo.getQueryParameters().getFirst("cpf");
-		logger.info("Nome mapeado: " + nome);
-		logger.info("CPF mapeado: " + cpf);
+		String efpc = uriInfo.getQueryParameters().getFirst("efpc");
 		
 		if(nome != null && nome != "") {
 			mapaParametro.put("nome", "%" + nome + "%");	
 		}
 		
 		if(cpf != null && cpf != "") {
-			mapaParametro.put("cpf", cpf);	
+			mapaParametro.put("cpf", cpf);
 		}
 		
+		if(efpc != null && efpc != "") {
+			mapaParametro.put("efpc", efpc);	
+		}
+		
+		if(mapaParametro.isEmpty()) return Response.status(400).build(); 
+				
 		return doConsultaGenerica(request, mapaParametro, retornarSql(mapaParametro));
+	}
+	
+	@Override
+	public Response doConsultaSiglasEfpc(UriInfo uriInfo, HttpServletRequest request) {
+		Map<String, Object> mapaParametro = new HashMap<String, Object>();
+		return doConsultaGenerica(request, mapaParametro, retornarSqlSiglas());
 	}
 	
 	public Response doConsultaGenerica(HttpServletRequest request,  Map<String, Object> mapaParametro, String query) {
 		try{
 			String result = dao.resultByQueryName(query,mapaParametro);
+			logger.info("RESPONSE --->  " + result);
 			logger.info("Requisição de origem "+Utils.getClientIp(request) + " encontrou ");
 			return Response.status(200).entity(result).build();
 			
@@ -97,6 +131,5 @@ public class DadosXQueryConsultaHabilitacaoPorNomeECpfWS implements IDadosXQuery
 			return Response.status(403).entity(e.getMessage()).build();
 		}
 	}
-
 	
 }

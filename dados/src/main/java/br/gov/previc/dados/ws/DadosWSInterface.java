@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
+import javax.faces.application.Application;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -205,4 +206,10 @@ public interface DadosWSInterface {
 			@QueryParam(value = "nome") String nome,
 			@QueryParam(value = "cpf") String cpf);
 	
+	@GET
+    @Path("cand/habilitacoesanexo/{id}/file")
+    @Produces(MediaType.APPLICATION_XML)
+    public Response buscarSiglas(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
 }

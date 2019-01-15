@@ -182,4 +182,9 @@ public class DadosWS implements DadosWSInterface {
 		return consultaHabilitacaoPorNomeECpfWS.doConsulta(uriInfo, request);
 	}
 
+	@Override
+	public Response buscarSiglas(UriInfo uriInfo, HttpServletRequest request) {
+		return consultaHabilitacaoPorNomeECpfWS.doConsultaSiglasEfpc(uriInfo, request);
+	}
+
 }

@@ -6,4 +6,5 @@ import javax.ws.rs.core.UriInfo;
 
 public interface IDadosXQueryWS {
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request);
+	 public Response doConsultaSiglasEfpc(UriInfo uriInfo, HttpServletRequest request);
 }	
