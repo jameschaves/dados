@@ -1,0 +1,18 @@
+FROM jboss/wildfly:11
+ARG usuarioAdmin
+ARG senhaAdmin
+ARG dbConnectionUrl
+ARG dbUserName
+ARG dbPassword
+ENV DB_CONNECTION_URL $dbConnectionUrl
+ENV DB_USERNAME $dbUserName
+ENV DB_PASSWORD $dbPassword
+# USER jboss
+WORKDIR /root/
+RUN /opt/jboss/wildfly/bin/add-user.sh $loginAdmin $senhaAdmin --silent
+RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar /opt/jboss/wildfly/deployments 
+RUN export DB_DRIVER_NAME=sqljdbc4-4.0.jar
+ADD target/dados.war /opt/jboss/wildfly/deployments
+ADD customization /opt/jboss/wildfly/customization/
+RUN /opt/jboss/wildfly/customization/execute.sh
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0","-bmanagement", "0.0.0.0"]
