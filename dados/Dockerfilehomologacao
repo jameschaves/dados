@@ -1,4 +1,4 @@
-FROM jboss/wildfly:11
+FROM jboss/wildfly
 ARG usuarioAdmin
 ARG senhaAdmin
 ARG dbConnectionUrl
