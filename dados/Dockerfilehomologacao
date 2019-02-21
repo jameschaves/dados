@@ -52,7 +52,7 @@ USER jboss
 
 RUN /opt/jboss/wildfly/customization/execute.sh
 
-
+USER root
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0","-bmanagement", "0.0.0.0"]
 #CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
