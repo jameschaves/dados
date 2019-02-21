@@ -8,8 +8,8 @@ ENV JBOSS_HOME /opt/jboss/wildfly
 
 USER root
 
-yum update -y
-yum install wget -y
+RUN yum update -y
+RUN yum install wget -y
 
 # Add the WildFly distribution to /opt, and make wildfly the owner of the extracted tar content
 # Make sure the distribution is available from a well-known place
