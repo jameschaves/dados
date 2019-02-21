@@ -45,7 +45,7 @@ RUN /opt/jboss/wildfly/bin/add-user.sh $usuarioAdmin $senhaAdmin --silent
 RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar 
 RUN mv sqljdbc4-4.0.jar /opt/jboss/wildfly/standalone/deployments/
 RUN export DB_DRIVER_NAME=sqljdbc4-4.0.jar
-ADD ./target/dados.war /opt/jboss/wildfly/standalone/deployments
+ADD ./target/dadosTeste.war /opt/jboss/wildfly/standalone/deployments
 ADD ./customization /opt/jboss/wildfly/customization/
 RUN /opt/jboss/wildfly/customization/execute.sh
 
