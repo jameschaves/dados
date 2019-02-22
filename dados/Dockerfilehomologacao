@@ -4,8 +4,12 @@ FROM jboss/base-jdk:11
 # Set the WILDFLY_VERSION env variable
 ENV WILDFLY_VERSION 15.0.0.Final
 ENV WILDFLY_SHA1 a387f2ebf1b902fc09d9526d28b47027bc9efed9
+
+#ENV WILDFLY_VERSION 10.0.0.Final
+#ENV WILDFLY_SHA1 c0dd7552c5207b0d116a9c25eb94d10b4f375549
+
 ENV JBOSS_HOME /opt/jboss/wildfly
-ENV DB_DRIVER_NAME sqljdbc4.0-4.jar
+ENV DB_DRIVER_NAME sqljdbc4-4.0.jar
 
 USER root
 
@@ -19,7 +23,7 @@ RUN cd $HOME \
     && sha1sum wildfly-$WILDFLY_VERSION.tar.gz | grep $WILDFLY_SHA1 \
     && tar xf wildfly-$WILDFLY_VERSION.tar.gz \
     && mv $HOME/wildfly-$WILDFLY_VERSION $JBOSS_HOME \
-    && rm wildfly-$WILDFLY_VERSION.tar.gz \
+    && rm -f wildfly-$WILDFLY_VERSION.tar.gz \
     && chown -R jboss:0 ${JBOSS_HOME} \
     && chmod -R g+rw ${JBOSS_HOME}
 
@@ -27,7 +31,7 @@ RUN cd $HOME \
 ENV LAUNCH_JBOSS_IN_BACKGROUND true
 
 # Expose the ports we're interested in
-EXPOSE 8080
+EXPOSE 8443
 
 # Set the default command to run on boot
 # This will boot WildFly in the standalone mode and bind to all interface
@@ -41,19 +45,21 @@ ENV DB_CONNECTION_URL $dbConnectionUrl
 ENV DB_USERNAME $dbUserName
 ENV DB_PASSWORD $dbPassword
 
-WORKDIR /root/
+WORKDIR /usr/local/src
 RUN /opt/jboss/wildfly/bin/add-user.sh $usuarioAdmin $senhaAdmin --silent
-RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar 
+RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar
 RUN mv sqljdbc4-4.0.jar /opt/jboss/wildfly/standalone/deployments/
-RUN export DB_DRIVER_NAME=sqljdbc4-4.0.jar
-ADD ./target/dadosTeste.war /opt/jboss/wildfly/standalone/deployments
+
 ADD ./customization /opt/jboss/wildfly/customization/
+#RUN chown -R jboss:root /opt/jboss/wildfly/customization/
+RUN chown -R jboss:root /opt/jboss/
+RUN chmod +x /opt/jboss/wildfly/customization/execute.sh
 
 USER jboss
 
 RUN /opt/jboss/wildfly/customization/execute.sh
 
-USER root
+ADD ./target/dados.war /opt/jboss/wildfly/standalone/deployments
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0","-bmanagement", "0.0.0.0"]
 #CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
