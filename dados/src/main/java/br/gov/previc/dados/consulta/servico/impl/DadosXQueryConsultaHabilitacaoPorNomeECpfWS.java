@@ -38,9 +38,9 @@ public class DadosXQueryConsultaHabilitacaoPorNomeECpfWS implements IDadosXQuery
 		}
 
 		String sql = "DECLARE @xmlHabilitacao XML;\r\n" + "SELECT @xmlHabilitacao = \r\n" + "(\r\n" + "SELECT \r\n"
-				+ "	ID_HABILITACAO AS idHabilitacao, \r\n" + "	TRIM(NM_PESSOA_FISICA_SPC) AS nome_pessoa_fisica,\r\n"
+				+ "	ID_HABILITACAO AS idHabilitacao, \r\n" + "	LTRIM(RTRIM(NM_PESSOA_FISICA_SPC)) AS nome_pessoa_fisica,\r\n"
 				+ "	NU_CPF AS cpf,\r\n" + "	SG_EFPC AS sigla,\r\n" + "	NM_TIPO_FUNCAO AS funcao,\r\n"
-				+ "	NM_CARGO AS cargo,\r\n" + "	IIF(IN_AETQ = 1, 'SIM', 'N√O') AS aetq,\r\n"
+				+ "	NM_CARGO AS cargo,\r\n" + "	IIF(IN_AETQ = 1, 'SIM', 'N√ÉO') AS aetq,\r\n"
 				+ "	TE_CODIGO_HABILITACAO AS numero_habilitacao,\r\n" + "	DT_VALIDADE AS validade_habilitacao\r\n"
 				+ "\r\n" + "  FROM [DADOS].[CAND].[DIRIGENTES]\r\n"
 				+ "  JOIN CAND.CADASTROS_PESSOAS_FISICAS_SPC ON DIRIGENTES.ID_CADASTRO_SPC = CADASTROS_PESSOAS_FISICAS_SPC.ID_CADASTRO_SPC\r\n"
@@ -106,7 +106,7 @@ public class DadosXQueryConsultaHabilitacaoPorNomeECpfWS implements IDadosXQuery
 			if (result == null)
 				return Response.status(404).build();
 			
-			logger.info("RequisiÁ„o de origem " + Utils.getClientIp(request) + " encontrou ");
+			logger.info("Requisi√ß√£o de origem " + Utils.getClientIp(request) + " encontrou ");
 			return Response.status(200).entity(result).build();
 
 		} catch (Exception e) {
