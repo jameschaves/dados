@@ -38,7 +38,7 @@ EXPOSE 8443
 
 
 WORKDIR /usr/local/src
-RUN /opt/jboss/wildfly/bin/add-user.sh -a #{USUARIOADMIN}# #{SENHAADMIN} --silent
+RUN /opt/jboss/wildfly/bin/add-user.sh -a #{USUARIOADMIN}# #{SENHAADMIN}# --silent
 RUN echo #{USUARIOADMIN}#=usuario >> /opt/jboss/wildfly/standalone/configuration/application-roles.properties
 
 RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar
