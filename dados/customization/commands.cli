@@ -6,7 +6,7 @@ batch
 
 # Add the datasource
 #data-source add --name=DadosDS --driver-name=${env.DB_DRIVER_NAME} --jndi-name=java:jboss/datasources/DadosDS --connection-url=${env.DB_CONNECTION_URL} --user-name=${env.DB_USERNAME} --password=${env.DB_PASSWORD} --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
-data-source add --name=DadosDS --driver-name=${env.DB_DRIVER_NAME} --jndi-name=java:jboss/datasources/DadosDS --connection-url={DB_CONNECTION_URL}# --user-name=#{DB_USERNAME}# --password=#{DBPASSWORD}# --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
+data-source add --name=DadosDS --driver-name=${env.DB_DRIVER_NAME} --jndi-name=java:jboss/datasources/DadosDS --connection-url=#{DB_CONNECTION_URL}# --user-name=#{DB_USERNAME}# --password=#{DBPASSWORD}# --use-ccm=false --max-pool-size=25 --blocking-timeout-wait-millis=5000 --enabled=true
 
 # Execute the batch
 run-batch
