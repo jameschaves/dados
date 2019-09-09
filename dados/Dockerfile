@@ -36,14 +36,6 @@ EXPOSE 8443
 # Set the default command to run on boot
 # This will boot WildFly in the standalone mode and bind to all interface
 
-ARG usuarioAdmin
-ARG senhaAdmin
-
-ARG dbConnectionUrl
-ARG dbUserName
-ARG dbPassword
-
-
 
 WORKDIR /usr/local/src
 RUN /opt/jboss/wildfly/bin/add-user.sh -a #{USUARIOADMIN}# #{SENHAADMIN} --silent
