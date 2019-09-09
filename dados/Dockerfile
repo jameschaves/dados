@@ -38,16 +38,16 @@ EXPOSE 8443
 
 ARG usuarioAdmin
 ARG senhaAdmin
+
 ARG dbConnectionUrl
 ARG dbUserName
 ARG dbPassword
-ENV DB_CONNECTION_URL $dbConnectionUrl
-ENV DB_USERNAME $dbUserName
-ENV DB_PASSWORD $dbPassword
+
+
 
 WORKDIR /usr/local/src
-RUN /opt/jboss/wildfly/bin/add-user.sh -a $usuarioAdmin $senhaAdmin --silent
-RUN echo $usuarioAdmin=usuario >> /opt/jboss/wildfly/standalone/configuration/application-roles.properties
+RUN /opt/jboss/wildfly/bin/add-user.sh -a #{USUARIOADMIN}# #{SENHAADMIN} --silent
+RUN echo #{USUARIOADMIN}#=usuario >> /opt/jboss/wildfly/standalone/configuration/application-roles.properties
 
 RUN wget http://clojars.org/repo/com/microsoft/sqlserver/sqljdbc4/4.0/sqljdbc4-4.0.jar
 RUN mv sqljdbc4-4.0.jar /opt/jboss/wildfly/standalone/deployments/
