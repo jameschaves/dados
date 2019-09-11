@@ -8,8 +8,10 @@ import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBException;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class DadosWSIT {
 
 	static String login = "dados";
