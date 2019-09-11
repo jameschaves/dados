@@ -21,5 +21,9 @@ public interface DadosDaoInterface {
     public List<Object> listByQueryName(String queryName);
 
 	public List<Object> listByQueryName(String queryName, Map<String, Object> mapParametro);
+
+	public String resultByQueryName(String queryName, Map<String, Object> mapParametro);
+
+	public byte[] resultBySql(String sql, Map<String, Object> mapParametro);
 	
 }

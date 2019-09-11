@@ -4,11 +4,13 @@ import java.math.BigDecimal;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
+import javax.faces.application.Application;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -188,4 +190,27 @@ public interface DadosWSInterface {
 			@Context HttpServletRequest request,  
 			@PathParam(value = "id") Integer id);
 	
+	@GET
+    @Path("cand/habilitacoesanexo/{id}/file")
+    @Produces("application/pdf")
+    public Response findContentBase64(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
+	 
+	@GET
+    @Path("cand/habilitacoesanexo/cadastro/pesquisar")
+    @Produces(MediaType.APPLICATION_XML)
+	public Response consultaHabilitacoesComParametros(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,
+			@QueryParam(value = "nome") String nome,
+			@QueryParam(value = "cpf") String cpf,
+			@QueryParam(value = "efpc") String efpc);
+	
+	@GET
+    @Path("cand/habilitacoesanexo/cadastro/efpc")
+    @Produces(MediaType.APPLICATION_XML)
+    public Response buscarSiglas(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
 }
