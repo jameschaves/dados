@@ -23,7 +23,7 @@ import javax.validation.constraints.NotNull;
  * @author james.chaves
  */
 @Entity
-@Table(name = "CADSPC.SITUACOES_PLANO")
+@Table(name = "SITUACOES_PLANO")
 @NamedQueries({
 	@NamedQuery(name="SituacoesPlanoModel.findAll", query="SELECT s FROM SituacoesPlanoModel s"),
 	@NamedQuery(name="SituacoesPlanoModel.findByIdSitPlano", query="SELECT s FROM SituacoesPlanoModel s WHERE s.idSitPlano = :idSitPlano")

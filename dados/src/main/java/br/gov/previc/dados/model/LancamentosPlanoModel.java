@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="SPC.LANCAMENTOS_PLANO")
+@Table(name="LANCAMENTOS_PLANO")
 @NamedQueries({
 	@NamedQuery(name="LancamentosPlanoModel.findAll", query="SELECT l FROM LancamentosPlanoModel l"),
 	@NamedQuery(name="LancamentosPlanoModel.findByIdCaptacao", query="SELECT l FROM LancamentosPlanoModel l WHERE l.idCaptacao = :idCaptacao"),

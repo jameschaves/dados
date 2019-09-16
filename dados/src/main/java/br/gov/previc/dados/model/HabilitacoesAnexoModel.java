@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CAND.HABILITACOES_ANEXO")
+@Table(name="HABILITACOES_ANEXO")
 @NamedQueries({
 	@NamedQuery(name="HabilitacoesAnexoModel.findAll", query="SELECT d FROM HabilitacoesAnexoModel d"),
 	@NamedQuery(name="HabilitacoesAnexoModel.findByIdHabilitacao", query="SELECT d FROM HabilitacoesAnexoModel d WHERE d.idHabilitacao = :idHabilitacao"),
