@@ -34,7 +34,7 @@ public class SecurityFilter implements ContainerRequestFilter {
 		final List<String> authorization = headers.get(HttpHeaders.AUTHORIZATION);
         
         //If no authorization information present; block access
-		//Teste VEVTVEVfUEVUUk9TXzEyNTpQRVRST1M=
+		//Teste ZGFkb3M6UEAkJHcwcmQ=
         if((null == authorization)||(authorization.isEmpty()))
         {
             requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED)
