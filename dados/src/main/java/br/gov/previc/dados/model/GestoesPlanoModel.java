@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="GESTOES_PLANO")
+@Table(name="CADSPC.GESTOES_PLANO")
 @NamedQueries({
 	@NamedQuery(name="GestoesPlanoModel.findAll", query="SELECT g FROM GestoesPlanoModel g"),
 	@NamedQuery(name="GestoesPlanoModel.findByIdGestaoPlano", query="SELECT g FROM GestoesPlanoModel g WHERE g.idGestaoPlano = :idGestaoPlano"),

@@ -16,7 +16,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="HISTORICOS_CAPTACAO")
+@Table(name="SPC.HISTORICOS_CAPTACAO")
 @NamedQueries({
 	@NamedQuery(name="HistoricosCaptacaoModel.findAll", query="SELECT h FROM HistoricosCaptacaoModel h"),
 	@NamedQuery(name="HistoricosCaptacaoModel.findByIdCaptacao", query="SELECT h FROM HistoricosCaptacaoModel h WHERE h.idCaptacao = :idCaptacao"),

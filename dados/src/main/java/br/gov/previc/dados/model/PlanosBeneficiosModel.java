@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author james.chaves
  */
 @Entity
-@Table(name = "PLANOS_BENEFICIOS")
+@Table(name = "CADSPC.PLANOS_BENEFICIOS")
 @XmlRootElement
 @NamedNativeQueries({
 	@NamedNativeQuery(name = "PlanosBeneficiosModel.Native.findByCnpb", query = "SELECT * "

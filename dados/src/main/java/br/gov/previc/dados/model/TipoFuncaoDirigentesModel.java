@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TIPO_FUNCAO_DIRIGENTES")
+@Table(name="DADOS.TIPO_FUNCAO_DIRIGENTES")
 @NamedQueries({
 	@NamedQuery(name="TipoFuncaoDirigentesModel.findAll", query="SELECT t FROM TipoFuncaoDirigentesModel t"),
 	@NamedQuery(name="TipoFuncaoDirigentesModel.findByIdTipoFuncao", query="SELECT t FROM TipoFuncaoDirigentesModel t WHERE t.idTipoFuncao = :idTipoFuncao")

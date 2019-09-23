@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PESSOAS_JURIDICAS_SPC")
+@Table(name = "CADSPC.PESSOAS_JURIDICAS_SPC")
 @NamedNativeQueries({
 
 		@NamedNativeQuery(name = "PessoasJuridicasSpcModel.Native.findAll", query = "SELECT * FROM [CADSPC].[PESSOAS_JURIDICAS_SPC]", resultClass = PessoasJuridicasSpcModel.class),

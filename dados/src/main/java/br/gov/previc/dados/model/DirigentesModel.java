@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="DIRIGENTES")
+@Table(name="CAND.DIRIGENTES")
 @NamedQueries({
 	@NamedQuery(name="DirigentesModel.findAll", query="SELECT d FROM DirigentesModel d"),
 	@NamedQuery(name="DirigentesModel.findByIdDirigente", query="SELECT d FROM DirigentesModel d WHERE d.idDirigente = :idDirigente"),

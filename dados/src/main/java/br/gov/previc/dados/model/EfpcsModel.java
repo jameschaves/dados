@@ -27,7 +27,7 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "EFPCS")
+@Table(name = "CADSPC.EFPCS")
 @XmlRootElement
 @NamedNativeQueries({
 		@NamedNativeQuery(name = "EfpcsModel.Native.findByCnpj", query = "SELECT * "

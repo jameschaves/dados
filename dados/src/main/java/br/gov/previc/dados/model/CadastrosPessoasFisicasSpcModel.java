@@ -17,7 +17,7 @@ import javax.persistence.Table;
  * 
  */
 @Entity
-@Table(name="CADASTROS_PESSOAS_FISICAS_SPC")
+@Table(name="CAND.CADASTROS_PESSOAS_FISICAS_SPC")
 @NamedQueries({
 	@NamedQuery(name="CadastrosPessoasFisicasSpcModel.findAll", query="SELECT c FROM CadastrosPessoasFisicasSpcModel c"),
 	@NamedQuery(name="CadastrosPessoasFisicasSpcModel.findByIdPessoaFisica", query="SELECT c FROM CadastrosPessoasFisicasSpcModel c WHERE c.idPessoaFisica = :idPessoaFisica"),
