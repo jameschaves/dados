@@ -183,7 +183,7 @@ public interface DadosWSInterface {
 			@PathParam(value = "id") Integer id);
 	
 	@GET
-    @Path("dados/tipofuncaodirigentes/{id}")
+    @Path("cand/tipofuncaodirigentes/{id}")
     @Produces(MediaType.APPLICATION_XML)  
 	public Response consultaTipoFuncaoDirigentes(
 			@Context UriInfo uriInfo, 
