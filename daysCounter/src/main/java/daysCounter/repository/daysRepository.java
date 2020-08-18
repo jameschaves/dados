@@ -32,13 +32,11 @@ public class daysRepository {
 
 	final static Logger logger = LoggerFactory.getLogger(daysRepository.class);
 
-	public static String XMLopener() {
-		boolean isFileUnlocked = false;
-		String dados = null;
+	public static int XMLopener(String data1, String data2) {
+		int uteis = 0;
+		int f = 0;
 		Document doc = null;
-		Days dia1 = new Days("tralala", 2);
-		int k = 5;
-		String check = null;
+		int acumulado1 = 0, acumulado2 =0;
 		try {
 			File file = new File(DaysCounterApplication.class.getClassLoader().getResource("dias_uteis.xml").getFile());
 
@@ -49,7 +47,6 @@ public class daysRepository {
 			doc.getDocumentElement().normalize();
 
 			NodeList listaDias = doc.getElementsByTagName("dia_util");
-			List<Days> dias = new ArrayList<>();
 
 			for (int i = 0; i < listaDias.getLength(); i++) {
 
@@ -63,23 +60,25 @@ public class daysRepository {
 					Days dia = new Days(data, acumulado);
 					dia.setData(data);
 					dia.setAcumulado(acumulado);
-					dias.add(dia);
-
-					dados = "teste " + dias + i;
+					if(data.equals(data1)) {
+						acumulado1 = acumulado;
+					}
+					if(data.equals(data2)) {
+						acumulado2 = acumulado;
+					}	
 				}
 			}
 		}
+		
 		/*
 		 * try { org.apache.commons.io.FileUtils.touch(file); isFileUnlocked = true; }
 		 * catch (IOException e) { isFileUnlocked = false; }
 		 */
 
 		catch (Exception ex) {
-			System.out.print(2);
-			System.out.print("   ERROOOOOOOOOOOO  ");
 			logger.error(ex.getMessage());
 		}
-
-		return dados;
+		uteis  = acumulado2 - acumulado1;
+		return uteis;
 	}
 }
