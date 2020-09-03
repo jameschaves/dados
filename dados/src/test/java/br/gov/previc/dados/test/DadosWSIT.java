@@ -20,6 +20,14 @@ public class DadosWSIT {
 	static String port = "8443";
 	// ZGFkb3M6UEAkJHcwcmQ=
 	@Test
+	public void testDiasUteis() throws JAXBException {
+		System.out.println("\n\nTestando consulta a dias uteis...");
+		String data1="2020-05-01";
+		String data2="2020-11-01";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/diasuteis?data1="+data1+"&data2="+data2;	
+		testaUrl(url);
+	}
+	@Test
 	public void testPessoasJuridicasSpc() throws JAXBException {
 		System.out.println("\n\nTestando consulta a PessoasJuridicasSpc...");
 		String idDeTeste="4";

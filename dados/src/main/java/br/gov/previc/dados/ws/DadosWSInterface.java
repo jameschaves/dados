@@ -1,6 +1,7 @@
 package br.gov.previc.dados.ws;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Local;
@@ -213,4 +214,12 @@ public interface DadosWSInterface {
     public Response buscarSiglas(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request);
+	
+	@GET
+    @Path("diasuteis")
+    public Response consultaDiasUteis(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,
+			@PathParam(value = "data1") Date data1,
+			@PathParam(value = "data2") Date data2);
 }

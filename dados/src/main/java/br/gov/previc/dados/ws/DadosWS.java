@@ -1,6 +1,7 @@
 package br.gov.previc.dados.ws;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -14,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import br.gov.previc.dados.consulta.servico.ICadastrosPessoasFisicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IConsultaHabilitacaoAnexoPdfWS;
 import br.gov.previc.dados.consulta.servico.IDadosXQueryWS;
+import br.gov.previc.dados.consulta.servico.IDiasUteisWS;
 import br.gov.previc.dados.consulta.servico.IDirigentesWS;
 import br.gov.previc.dados.consulta.servico.IEfpcsWS;
 import br.gov.previc.dados.consulta.servico.IGestoesPlanoWS;
@@ -37,10 +39,8 @@ public class DadosWS implements DadosWSInterface {
 	IGestoesPlanoWS gestoesPlanoWS;
 	@EJB
 	ISituacoesPlanoWS situacoesPlanoWS;
-	
 	@EJB
 	ICadastrosPessoasFisicasSpcWS cadastrosPessoasFisicasSpcWS;
-	
 	@EJB
 	IHistoricosCaptacaoWS historicosCaptacaoWS;
 	@EJB
@@ -51,12 +51,12 @@ public class DadosWS implements DadosWSInterface {
 	IHabilitacoesAnexoWS habilitacaoAnexoWS;
 	@EJB
 	ITipoFuncaoDirigentesWS tipoFuncaoDirigentesWS;
-
 	@EJB
 	IConsultaHabilitacaoAnexoPdfWS consultaHabilitacaoAnexoPdfWS;
-
 	@EJB(beanName = "DadosXQueryConsultaHabilitacaoPorNomeECpfWS")
 	IDadosXQueryWS consultaHabilitacaoPorNomeECpfWS;
+	@EJB
+	IDiasUteisWS diasUteisWS;
 
 	static final Logger logger = LogManager.getLogger();
 
@@ -185,6 +185,11 @@ public class DadosWS implements DadosWSInterface {
 	@Override
 	public Response buscarSiglas(UriInfo uriInfo, HttpServletRequest request) {
 		return consultaHabilitacaoPorNomeECpfWS.doConsultaSiglasEfpc(uriInfo, request);
+	}
+
+	@Override
+	public Response consultaDiasUteis(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2) {
+		return diasUteisWS.doConsulta(uriInfo, request, data1, data2);
 	}
 
 }
