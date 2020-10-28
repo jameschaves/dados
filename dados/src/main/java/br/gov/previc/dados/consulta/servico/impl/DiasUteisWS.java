@@ -32,7 +32,7 @@ public class DiasUteisWS implements IDiasUteisWS{
 	@Override
 	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2) {
 		try{
-			return Response.ok().entity(contadorDias(request.getParameter("data1"),request.getParameter("data1"))).build();
+			return Response.ok().entity(contadorDias(request.getParameter("data1"),request.getParameter("data2"))).build();
 		}
 		catch (Exception e){
 			logger.info("Erro na requisicao de origem "+Utils.getClientIp(request) +" com a mensagem "+e.getMessage());
@@ -40,27 +40,21 @@ public class DiasUteisWS implements IDiasUteisWS{
 		}
 	}
 	
-	String contadorDias (String dt1, String dt2) {
+	int contadorDias (String dt1, String dt2) {
 		boolean isFileUnlocked = false;
 		int uteis = 0;
 		int f = 0;
 		String saida = "retorno";
+		Days dia = null;
 		Document doc = null;
 		int acumulado1 = 0, acumulado2 =0;
 			
 		try {
-			File file = new File(IDiasUteisWS.class.getClassLoader().getResource("dias_uteis.xml").getFile());
+			InputStream file =  DiasUteisWS.class.getClassLoader().getResourceAsStream("dias_uteis.xml");
 
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			doc = builder.parse(file);
-			
-			try {
-			    org.apache.commons.io.FileUtils.touch(file);
-			    isFileUnlocked = true;
-			} catch (IOException e) {
-			    isFileUnlocked = false;
-			}
 				
 			doc.getDocumentElement().normalize();
 
@@ -75,7 +69,7 @@ public class DiasUteisWS implements IDiasUteisWS{
 					Element elementoDia = (Element) noDia;
 					String data = elementoDia.getElementsByTagName("data").item(0).getTextContent();
 					int acumulado = Integer.parseInt(elementoDia.getElementsByTagName("acumulado").item(0).getTextContent());
-					Days dia = new Days(data, acumulado);
+					dia = new Days(data, acumulado);
 					dia.setData(data);
 					dia.setAcumulado(acumulado);
 					if(data.equals(dt1)) {
@@ -91,7 +85,7 @@ public class DiasUteisWS implements IDiasUteisWS{
 			logger.error(ex.getMessage());
 		}
 		uteis  = acumulado2 - acumulado1;
-		return dt1;
+		return uteis;
 	}
 	
 	class Days {
