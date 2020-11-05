@@ -20,6 +20,13 @@ public class DadosWSIT {
 	static String port = "8443";
 	// ZGFkb3M6UEAkJHcwcmQ=
 	@Test
+	public void testProximoUtil() throws JAXBException {
+		System.out.println("\n\nTestando consulta a dias uteis...");
+		String data1="2020-05-01";
+		String url = "https://"+host+":"+port+"/dados/rest/dados/proximoutil?data1="+data1;	
+		testaUrl(url);
+	}
+	@Test
 	public void testDiasUteis() throws JAXBException {
 		System.out.println("\n\nTestando consulta a dias uteis...");
 		String data1="2020-05-01";

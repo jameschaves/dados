@@ -222,4 +222,11 @@ public interface DadosWSInterface {
 			@Context HttpServletRequest request,
 			@PathParam(value = "data1") Date data1,
 			@PathParam(value = "data2") Date data2);
+	
+	@GET
+    @Path("proximoutil")
+    public Response consultaProximoUtil(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request,
+			@PathParam(value = "data1") Date data1);
 }

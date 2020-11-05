@@ -26,6 +26,7 @@ import br.gov.previc.dados.consulta.servico.IPessoasJuridicasSpcWS;
 import br.gov.previc.dados.consulta.servico.IPlanosBeneficiosWS;
 import br.gov.previc.dados.consulta.servico.ISituacoesPlanoWS;
 import br.gov.previc.dados.consulta.servico.ITipoFuncaoDirigentesWS;
+import br.gov.previc.dados.consulta.servico.IProximoUtilWS;
 
 @Stateless
 public class DadosWS implements DadosWSInterface {
@@ -57,6 +58,8 @@ public class DadosWS implements DadosWSInterface {
 	IDadosXQueryWS consultaHabilitacaoPorNomeECpfWS;
 	@EJB
 	IDiasUteisWS diasUteisWS;
+	@EJB
+	IProximoUtilWS proximoUtilWS;
 
 	static final Logger logger = LogManager.getLogger();
 
@@ -190,6 +193,11 @@ public class DadosWS implements DadosWSInterface {
 	@Override
 	public Response consultaDiasUteis(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2) {
 		return diasUteisWS.doConsulta(uriInfo, request, data1, data2);
+	}
+	
+	@Override
+	public Response consultaProximoUtil(UriInfo uriInfo, HttpServletRequest request, Date data1) {
+		return proximoUtilWS.doConsultaUtil(uriInfo, request, data1);
 	}
 
 }
