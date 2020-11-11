@@ -7,5 +7,5 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 public interface IDiasUteisWS {
-	public  Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2);
+	public  Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String data1, String data2);
 }

@@ -220,8 +220,8 @@ public interface DadosWSInterface {
     public Response consultaDiasUteis(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
-			@PathParam(value = "data1") Date data1,
-			@PathParam(value = "data2") Date data2);
+			@QueryParam(value = "data1") String data1,
+			@QueryParam(value = "data2") String data2);
 	
 	@GET
     @Path("proximoutil")

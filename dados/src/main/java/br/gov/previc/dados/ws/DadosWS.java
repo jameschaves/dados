@@ -191,7 +191,7 @@ public class DadosWS implements DadosWSInterface {
 	}
 
 	@Override
-	public Response consultaDiasUteis(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2) {
+	public Response consultaDiasUteis(UriInfo uriInfo, HttpServletRequest request, String data1, String data2) {
 		return diasUteisWS.doConsulta(uriInfo, request, data1, data2);
 	}
 	

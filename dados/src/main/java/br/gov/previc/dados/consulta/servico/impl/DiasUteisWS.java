@@ -30,9 +30,9 @@ import br.gov.previc.dados.utils.Utils;
 public class DiasUteisWS implements IDiasUteisWS{
 	static final Logger logger = LogManager.getLogger();
 	@Override
-	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, Date data1, Date data2) {
+	public Response doConsulta(UriInfo uriInfo, HttpServletRequest request, String data1, String data2) {
 		try{
-			return Response.ok().entity(contadorDias(request.getParameter("data1"),request.getParameter("data2"))).build();
+			return Response.ok().entity(contadorDias(data1,data2)).build();
 		}
 		catch (Exception e){
 			logger.info("Erro na requisicao de origem "+Utils.getClientIp(request) +" com a mensagem "+e.getMessage());
