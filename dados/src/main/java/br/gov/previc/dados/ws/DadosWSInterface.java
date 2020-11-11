@@ -228,5 +228,5 @@ public interface DadosWSInterface {
     public Response consultaProximoUtil(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
-			@PathParam(value = "data1") Date data1);
+			@QueryParam(value = "data1") String data1);
 }

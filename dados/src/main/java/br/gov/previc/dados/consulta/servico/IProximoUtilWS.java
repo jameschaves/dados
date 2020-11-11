@@ -7,6 +7,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
 public interface IProximoUtilWS {
-	public  Response doConsultaUtil(UriInfo uriInfo, HttpServletRequest request, Date data1);
+	public  Response doConsultaUtil(UriInfo uriInfo, HttpServletRequest request, String data1);
 
 }

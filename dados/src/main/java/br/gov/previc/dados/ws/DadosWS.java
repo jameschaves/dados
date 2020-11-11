@@ -196,7 +196,7 @@ public class DadosWS implements DadosWSInterface {
 	}
 	
 	@Override
-	public Response consultaProximoUtil(UriInfo uriInfo, HttpServletRequest request, Date data1) {
+	public Response consultaProximoUtil(UriInfo uriInfo, HttpServletRequest request, String data1) {
 		return proximoUtilWS.doConsultaUtil(uriInfo, request, data1);
 	}
 

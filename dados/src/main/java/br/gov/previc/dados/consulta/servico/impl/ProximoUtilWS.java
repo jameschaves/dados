@@ -29,9 +29,9 @@ import br.gov.previc.dados.utils.Utils;
 public class ProximoUtilWS implements IProximoUtilWS{
 	static final Logger logger = LogManager.getLogger();
 	@Override
-	public Response doConsultaUtil(UriInfo uriInfo, HttpServletRequest request, Date data1) {
+	public Response doConsultaUtil(UriInfo uriInfo, HttpServletRequest request, String data1) {
 		try{
-			return Response.ok().entity(proximoUtil(request.getParameter("data1"))).build();
+			return Response.ok().entity(proximoUtil(data1)).build();
 		}
 		catch (Exception e){
 			logger.info("Erro na requisicao de origem "+Utils.getClientIp(request) +" com a mensagem "+e.getMessage());
