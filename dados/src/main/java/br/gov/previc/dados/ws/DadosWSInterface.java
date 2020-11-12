@@ -217,6 +217,7 @@ public interface DadosWSInterface {
 	
 	@GET
     @Path("diasuteis")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response consultaDiasUteis(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
@@ -225,6 +226,7 @@ public interface DadosWSInterface {
 	
 	@GET
     @Path("proximoutil")
+    @Produces(MediaType.TEXT_PLAIN)
     public Response consultaProximoUtil(
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
