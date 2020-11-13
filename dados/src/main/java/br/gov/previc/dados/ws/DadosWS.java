@@ -200,4 +200,9 @@ public class DadosWS implements DadosWSInterface {
 		return proximoUtilWS.doConsultaUtil(uriInfo, request, data1);
 	}
 
+	@Override
+	public Response healthCheck(UriInfo uriInfo, HttpServletRequest request) {
+		return Response.ok().build();
+	}
+
 }

@@ -231,4 +231,10 @@ public interface DadosWSInterface {
 			@Context UriInfo uriInfo, 
 			@Context HttpServletRequest request,
 			@QueryParam(value = "data1") String data1);
+	
+	@GET
+    @Path("/")
+    public Response healthCheck(
+			@Context UriInfo uriInfo, 
+			@Context HttpServletRequest request);
 }
