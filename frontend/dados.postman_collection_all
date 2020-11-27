@@ -1,0 +1,892 @@
+{
+	"info": {
+		"_postman_id": "30699ff9-0f46-48ee-a93b-92ef50d62018",
+		"name": "dados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscarSiglas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/habilitacoesanexo/cadastro/efpc",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"habilitacoesanexo",
+						"cadastro",
+						"efpc"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "diasUteis",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/diasuteis?data1=2020-11-30&data2=2020-12-31",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"diasuteis"
+					],
+					"query": [
+						{
+							"key": "data1",
+							"value": "2020-11-30"
+						},
+						{
+							"key": "data2",
+							"value": "2020-12-31"
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaHabilitacoesAnexoPorIdCadastroSpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/habilitacoesanexo/cadastro/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"habilitacoesanexo",
+						"cadastro",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaDirigentes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/dirigentes/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"dirigentes",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaHistoricosCaptacaoPorEfpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/sicadi/historicoscaptacao/efpc/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"sicadi",
+						"historicoscaptacao",
+						"efpc",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaHistoricosCaptacao",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/sicadi/historicoscaptacao/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"sicadi",
+						"historicoscaptacao",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaLancamentosPlanoPorCnpbPorTempo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/sicadi/lancamentosplano/cnpb/4072/ano/2020/mes/08/trimestre/4",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"sicadi",
+						"lancamentosplano",
+						"cnpb",
+						"4072",
+						"ano",
+						"2020",
+						"mes",
+						"08",
+						"trimestre",
+						"4"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaLancamentosPlano",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/sicadi/lancamentosplano/407",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"sicadi",
+						"lancamentosplano",
+						"407"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaCadastrosPessoasFisicasSpcPorCpf",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/cadastrospessoasfisicasspc/cpf/12718272",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"cadastrospessoasfisicasspc",
+						"cpf",
+						"12718272"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaCadastrosPessoasFisicasSpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/cadastrospessoasfisicasspc/123123",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"cadastrospessoasfisicasspc",
+						"123123"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaGestoesPlanoPorPlano",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/gestoesplano/plano/1333",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"gestoesplano",
+						"plano",
+						"1333"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaGestoesPlanoPorEfpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/gestoesplano/efpc/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"gestoesplano",
+						"efpc",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaGestoesPlano",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/gestoesplano/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"gestoesplano",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaSituacoesPlano",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/situacoesplano/1927",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"situacoesplano",
+						"1927"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaPlanosBeneficiosPorCnpb",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/planosbeneficios/cnpb/123123897123",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"planosbeneficios",
+						"cnpb",
+						"123123897123"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaPlanosBeneficios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/planosbeneficios/1333",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"planosbeneficios",
+						"1333"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaEfpcsPorIdPjSpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/efpcs/idpjspc/1333",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"efpcs",
+						"idpjspc",
+						"1333"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaEfpcs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/efpcs/1333",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"efpcs",
+						"1333"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaPessoasJuridicasSpcPorCnpj",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/pessoasjuridicasspc/cnpj/133",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"pessoasjuridicasspc",
+						"cnpj",
+						"133"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaPessoasJuridicasSpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cad/pessoasjuridicasspc/12871892",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cad",
+						"pessoasjuridicasspc",
+						"12871892"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaDirigentesPorIdCadastroSpc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ="
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/dirigentes/cadastro/4072",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"dirigentes",
+						"cadastro",
+						"4072"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaTipoFuncaoDirigentes",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/tipofuncaodirigentes/3962",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"tipofuncaodirigentes",
+						"3962"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "consultaHabilitação",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/habilitacoesanexo/cadastro/pesquisar?nome=joão&cpf=111111&efpc=4073",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"habilitacoesanexo",
+						"cadastro",
+						"pesquisar"
+					],
+					"query": [
+						{
+							"key": "nome",
+							"value": "joão"
+						},
+						{
+							"key": "cpf",
+							"value": "111111"
+						},
+						{
+							"key": "efpc",
+							"value": "4073"
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "findContest",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/cand/habilitacoesanexo/{id}/file",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"cand",
+						"habilitacoesanexo",
+						"{id}",
+						"file"
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "proximoUtil",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/proximoutil?data1=2020-11-30",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"proximoutil"
+					],
+					"query": [
+						{
+							"key": "data1",
+							"value": "2020-11-30"
+						},
+						{
+							"key": "data2",
+							"value": "2020-12-31",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

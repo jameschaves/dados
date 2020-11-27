@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "78e98f03-f3b6-4199-951e-aea5c41fe69a",
+		"name": "dados",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/diasuteis?data1=2020-11-30&data2=2020-12-31",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "P@$$w0rd",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "dados",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/diasuteis?data1=2020-11-30&data2=2020-12-31",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"diasuteis"
+					],
+					"query": [
+						{
+							"key": "data1",
+							"value": "2020-11-30"
+						},
+						{
+							"key": "data2",
+							"value": "2020-12-31"
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		},
+		{
+			"name": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/diasuteis?data1=2020-11-30&data2=2020-12-31 Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://homologacao-dados.previc.gov:8443/dados/rest/dados/proximoutil?data1=2020-11-07",
+					"protocol": "https",
+					"host": [
+						"homologacao-dados",
+						"previc",
+						"gov"
+					],
+					"port": "8443",
+					"path": [
+						"dados",
+						"rest",
+						"dados",
+						"proximoutil"
+					],
+					"query": [
+						{
+							"key": "data1",
+							"value": "2020-11-07"
+						}
+					]
+				},
+				"description": "Requisição\r\nGET https://homologacao-dados.previc.gov.br:8443/dados/rest/dados?data1=2020-11-30&data2=2020-12-31\r\nHTTP/1.1  \r\n\r\nResposta\r\nHTTP/1.1 200 OK\r\n123"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
