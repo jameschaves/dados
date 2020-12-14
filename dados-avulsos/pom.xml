@@ -182,7 +182,6 @@
 	<distributionManagement>
 		<repository>
 			<id>nexus.previc.gov</id>
-			<name>nexus.previc.gov-snapshots</name>
 			<url>http://nexus.previc.gov:8081/repository/maven-snapshots/</url>
 		</repository>
 	</distributionManagement>
