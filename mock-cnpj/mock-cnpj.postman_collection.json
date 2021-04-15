@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "844d4c65-0376-4d51-aebc-1397f79f8651",
+		"name": "mock-cnpj",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCnpjCadastro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://minerva.brazilsouth.cloudapp.azure.com:9443/mock-cnpj/rest/cadastro-rfb/cnpj-cadastro/123456789",
+					"protocol": "https",
+					"host": [
+						"minerva",
+						"brazilsouth",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"port": "9443",
+					"path": [
+						"mock-cnpj",
+						"rest",
+						"cadastro-rfb",
+						"cnpj-cadastro",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "P@$$w0rd",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "mock-cnpj",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
