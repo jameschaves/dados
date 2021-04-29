@@ -12,7 +12,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Basic ZGFkb3M6UEAkJHcwcmQ=",
+						"value": "Basic ",
 						"type": "text"
 					}
 				],
